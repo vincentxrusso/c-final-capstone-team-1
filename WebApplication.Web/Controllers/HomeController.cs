@@ -5,14 +5,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Web.Models;
-
+using WebApplication.Web.DAL;
 namespace WebApplication.Web.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
-        {            
-            return View();
+        {
+            RecipeDAL dal = new RecipeDAL();
+            return View(dal.recipesTop5());
         }
 
         public IActionResult About()
@@ -33,6 +35,7 @@ namespace WebApplication.Web.Controllers
         {
             return View();
         }
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
