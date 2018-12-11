@@ -13,7 +13,7 @@ CREATE DATABASE DemoDB;
 GO
 
 -- Switch to the DemoDB Database
-USE DemoDB
+USE MealPlanner
 GO
 
 BEGIN TRANSACTION;
