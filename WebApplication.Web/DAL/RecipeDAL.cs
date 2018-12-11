@@ -12,9 +12,11 @@ namespace WebApplication.Web.DAL
     {
 
         const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
-        const string AddRecipeString = " INSERT INTO recipes(description, name, instructions, cookTime, prepTime, recipeType, gluten, vegetarian, dairy, nuts, vegan, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium) "+
+        const string AddRecipeString = " INSERT INTO recipes(description, name, instructions, cookTime, prepTime, recipeType, gluten, vegetarian, dairy, nuts, vegan, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium) " +
             "values(@description, @name, @instructions, @cookTime, @prepTime, @recipeType, @gluten, @vegetarian, @dairy, @nuts, @vegan, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein, @fiber, @cholesterol, @sodium)";
         const string RecipeListTop5String = "Select * from recipes";
+        const string GetAllRecipesString = "SELECT * from recipes";
+        const string GetAllUserRecipesString = " ";
         public Recipes dapperDemoRecipe = new Recipes();
 
         public int addRecipes(Recipes newRecipe)
@@ -48,18 +50,53 @@ namespace WebApplication.Web.DAL
             }
 
         }
+
+        //This method is to display top 5 recipes for the home index below the log in and register for aesthetics
         public List<Recipes> recipesTop5()
         {
-            using (SqlConnection connection = new SqlConnection(RecipeListTop5String))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 List<Recipes> result = connection.Query<Recipes>(RecipeListTop5String).ToList();
                 return result;
             }
         }
-        
 
-        
+        // This method is to retrieve all the recipes so that the user can choose which ones to join to their meal plan organizer.
+        public IList<Recipes> getRecipes()
+        {
+
+            IList<Recipes> allRecipes = new List<Recipes>();
+
+            {
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    List<Recipes> result = connection.Query<Recipes>(GetAllRecipesString).ToList();
+                    return result;
+
+                }
+            }
+
+
+
+        }
+
+        // join sql query between recipes and user and ingredients
+        public IList<Recipes> getRecipesForUser(int userId)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                List<Recipes> result = connection.Query<Recipes>(GetAllUserRecipesString).ToList();
+                return result;
+
+            }
+
+
+        }
 
 
 
