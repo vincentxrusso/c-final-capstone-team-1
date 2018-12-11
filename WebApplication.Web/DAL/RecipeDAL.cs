@@ -19,25 +19,25 @@ namespace WebApplication.Web.DAL
 
         public int addRecipes(Recipes newRecipe)
         {
-            dapperDemoRecipe.name = "Pancakes";
-            dapperDemoRecipe.description = "How to make some Gluten Free Pancakes that adam doesnt feel like eating";
-            dapperDemoRecipe.instructions = "Adam Brings in the mix and we read the package";
-            dapperDemoRecipe.cookTime = 20;
-            dapperDemoRecipe.prepTime = 10;
-            dapperDemoRecipe.recipeType = "breakfast";
-            dapperDemoRecipe.gluten = false;
-            dapperDemoRecipe.vegetarian = true;
-            dapperDemoRecipe.dairy = true;
-            dapperDemoRecipe.nuts = false;
-            dapperDemoRecipe.vegan = false;
-            dapperDemoRecipe.servings = 4;
-            dapperDemoRecipe.caloriesPerServing = 300;
-            dapperDemoRecipe.fat = 4;
-            dapperDemoRecipe.carbohydrates = 39;
-            dapperDemoRecipe.protein = 5;
-            dapperDemoRecipe.fiber = 2;
-            dapperDemoRecipe.cholesterol = 10;
-            dapperDemoRecipe.sodium = 1;
+            dapperDemoRecipe.Name = "Pancakes";
+            dapperDemoRecipe.Description = "How to make some Gluten Free Pancakes that adam doesnt feel like eating";
+            dapperDemoRecipe.Instructions = "Adam Brings in the mix and we read the package";
+            dapperDemoRecipe.CookTime = 20;
+            dapperDemoRecipe.PrepTime = 10;
+            dapperDemoRecipe.RecipeType = "breakfast";
+            dapperDemoRecipe.Gluten = false;
+            dapperDemoRecipe.Vegetarian = true;
+            dapperDemoRecipe.Dairy = true;
+            dapperDemoRecipe.Nuts = false;
+            dapperDemoRecipe.Vegan = false;
+            dapperDemoRecipe.Servings = 4;
+            dapperDemoRecipe.CaloriesPerServing = 300;
+            dapperDemoRecipe.Fat = 4;
+            dapperDemoRecipe.Carbohydrates = 39;
+            dapperDemoRecipe.Protein = 5;
+            dapperDemoRecipe.Fiber = 2;
+            dapperDemoRecipe.Cholesterol = 10;
+            dapperDemoRecipe.Sodium = 1;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
