@@ -13,7 +13,13 @@ namespace WebApplication.Web.Models
         /// The user's id.
         /// </summary>
         [Required]
-        public int Id { get; set; }
+        public int UserId { get; set; }
+
+        public int RecipeId { get; set; }
+
+        public int MealPlanId { get; set; }
+
+        public int GroceryListId { get; set; }
 
         /// <summary>
         /// The user's username.

@@ -20,7 +20,7 @@ namespace WebApplication.Web.DAL
         /// Saves the user to the database.
         /// </summary>
         /// <param name="user"></param>
-        public void CreateUser(User user)
+        public void CreateUser(Users user)
         {
             try
             {
@@ -48,15 +48,15 @@ namespace WebApplication.Web.DAL
         /// Deletes the user from the database.
         /// </summary>
         /// <param name="user"></param>
-        public void DeleteUser(User user)
+        public void DeleteUser(Users user)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE id = @id;", conn);
-                    cmd.Parameters.AddWithValue("@id", user.Id);                    
+                    SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE userId = @userId;", conn);
+                    cmd.Parameters.AddWithValue("@userId", user.UserId);
 
                     cmd.ExecuteNonQuery();
 
@@ -74,9 +74,9 @@ namespace WebApplication.Web.DAL
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
-        public User GetUser(string username)
+        public Users GetUser(string username)
         {
-            User user = null;
+            Users user = null;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -105,7 +105,7 @@ namespace WebApplication.Web.DAL
         /// Updates the user in the database.
         /// </summary>
         /// <param name="user"></param>
-        public void UpdateUser(User user)
+        public void UpdateUser(Users user)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace WebApplication.Web.DAL
                     cmd.Parameters.AddWithValue("@password", user.Password);
                     cmd.Parameters.AddWithValue("@salt", user.Salt);
                     cmd.Parameters.AddWithValue("@role", user.Role);
-                    cmd.Parameters.AddWithValue("@id", user.Id);
+                    cmd.Parameters.AddWithValue("@userId", user.UserId);
 
                     cmd.ExecuteNonQuery();
 
@@ -129,11 +129,11 @@ namespace WebApplication.Web.DAL
             }
         }
 
-        private User MapRowToUser(SqlDataReader reader)
+        private Users MapRowToUser(SqlDataReader reader)
         {
-            return new User()
+            return new Users()
             {
-                Id = Convert.ToInt32(reader["id"]),
+                UserId = Convert.ToInt32(reader["userId"]),
                 Username = Convert.ToString(reader["username"]),
                 Password = Convert.ToString(reader["password"]),
                 Salt = Convert.ToString(reader["salt"]),

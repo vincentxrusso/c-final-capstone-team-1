@@ -52,7 +52,7 @@ namespace WebApplication.Web.Controllers
             // Create the user
             var hashProvider = new HashProvider();
             var hashedPassword = hashProvider.HashPassword(model.Password);
-            var user = new User
+            var user = new Users
             {
                 Password = hashedPassword.Password,
                 Salt = hashedPassword.Salt,
@@ -72,7 +72,7 @@ namespace WebApplication.Web.Controllers
         [HttpGet("user", Name = "GetUser")]
         public ActionResult<dynamic> GetUser()
         {
-            var user = (User)HttpContext.Items["User"];
+            var user = (Users)HttpContext.Items["User"];
             return Ok(new
             {
                 user.Username,
