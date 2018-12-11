@@ -1,3 +1,16 @@
-﻿@{
+﻿@model  IList<Recipes>
+@{
     ViewData["Title"] = "Home Page";
 }
+<img class="logo" src="~/img/logo.png" />
+
+<div class="topRecipes">
+    @foreach(Recipes recipe in Model)
+    {
+
+    }
+
+
+
+
+</div>
