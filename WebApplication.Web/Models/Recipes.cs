@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,9 +10,11 @@ namespace WebApplication.Web.Models
     public class Recipes
     {
         public int RecipeId { get; set; }
-        public string Description { get; set; }
-        public  string Name{ get; set; }
-        public  string Instructions { get; set; }
+        public int IngredientId { get; set; }
+        public int UserId { get; set; }
+        public string RecipeDescription { get; set; }
+        public string RecipeName{ get; set; }
+        public string Instructions { get; set; }
         //in minutes
         public int CookTime { get; set; }
         public int PrepTime { get; set; }
@@ -28,6 +32,6 @@ namespace WebApplication.Web.Models
         public double Fiber { get; set; }
         public double Cholesterol { get; set; }
         public double Sodium { get; set; }
-
+        public string RecipeImage { get; set; }
     }
 }
