@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Web.Models
 {
-    public class User
+    public class Users
     {
         /// <summary>
         /// The user's id.
