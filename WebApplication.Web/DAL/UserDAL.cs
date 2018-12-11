@@ -7,11 +7,11 @@ using WebApplication.Web.Models;
 
 namespace WebApplication.Web.DAL
 {
-    public class UserSqlDAL : IUserDAL
+    public class UserDAL : IUserDAL
     {
         private readonly string connectionString;
 
-        public UserSqlDAL(string connectionString)
+        public UserDAL(string connectionString)
         {
             this.connectionString = connectionString;
         }
