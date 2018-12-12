@@ -10,6 +10,7 @@ namespace WebApplication.Web.DAL
 {
     public class MealPlanDAL : IMealPlanDAL
     {
+<<<<<<< HEAD
 
 
         const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
@@ -33,6 +34,9 @@ namespace WebApplication.Web.DAL
 
         }
 
+=======
+        const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
+>>>>>>> 0b4b85635d29fc05b1b484b8b1d2090817c1379c
 
 
 
