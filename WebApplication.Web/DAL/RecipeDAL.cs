@@ -16,7 +16,7 @@ namespace WebApplication.Web.DAL
             "@recipeId, @recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein	fiber, @cholesterol, @sodium, @recipeImage)";
         const string RecipeListTop5String = "Select * from recipes";
         const string GetAllRecipesString = "SELECT * from recipes";
-        const string GetAllUserRecipesString = " ";
+        const string GetAllUserRecipesString = "Select * from recipes where user ";
         public Recipes dapperDemoRecipe = new Recipes();
 
         public int addRecipes(Recipes newRecipe)
