@@ -1,14 +1,39 @@
-﻿@model  IList<Recipes>
+﻿@model IList<Recipes>
 @{
     ViewData["Title"] = "Home Page";
 }
-<img class="logo" src="~/img/logo.png" />
 
-<div class="topRecipes">
-    @foreach(Recipes recipe in Model)
+
+
+@*@if (Session[SessionKeys.Username] == null)
     {
-
+        <h2>Welcome!</h2>
     }
+    else
+    {
+        <h2>Welcome @((string)Session[SessionKeys.Username])!</h2>
+    }*@
+<div class="topRecipes">
+    <img class="logo" src="~/images/logo.jpg" />
+    <h2> Welcome to the Capstone Meal Planner</h2>
+    @{ foreach (Recipes recipe in Model)
+        {
+            <div >
+
+                {
+                <p> @recipe.RecipeName</p>
+                <p>@recipe.RecipeDescription</p>
+                <p>@recipe.CaloriesPerServing Calories Per Serving</p>
+
+
+                }
+                }
+            </div>
+
+        }
+    }
+
+
 
 
 
