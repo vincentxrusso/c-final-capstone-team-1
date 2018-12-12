@@ -17,7 +17,7 @@ namespace WebApplication.Web.DAL
         const string AddMealPlanString = " INSERT INTO mealPlans (recipeId, mealPlanName, mealPlanImage) " +
             "@recipeId, @mealPlanName, @mealPlanImage)";
         const string GetAllMealPlans = "Select * from mealPlan";
-        const string GetAllRecipesString = "SELECT * from mealPlan";
+        
         const string GetAllUserRecipesString = " ";
         
 

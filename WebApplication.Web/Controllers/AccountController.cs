@@ -22,13 +22,19 @@ namespace WebApplication.Web.Controllers
         public IActionResult Index()
         {
             var user = authProvider.GetCurrentUser();
+
             return View(user);
         }
 
         [HttpGet]
         public IActionResult Login()
-        {            
-            return View();
+        {
+            if (authProvider.IsLoggedIn)
+            {
+                // Redirect the user where you want them to go after successful login
+                return RedirectToAction("Index", "Home");
+            }
+            else  return View();
         }
 
         [HttpPost]
