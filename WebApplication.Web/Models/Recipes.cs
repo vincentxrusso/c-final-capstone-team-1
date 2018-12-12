@@ -10,8 +10,7 @@ namespace WebApplication.Web.Models
     public class Recipes
     {
         public int RecipeId { get; set; }
-        public int IngredientId { get; set; }
-        public int UserId { get; set; }
+       
         public string RecipeDescription { get; set; }
         public string RecipeName{ get; set; }
         public string Instructions { get; set; }
