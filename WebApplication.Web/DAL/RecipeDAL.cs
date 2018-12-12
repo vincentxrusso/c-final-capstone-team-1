@@ -12,8 +12,8 @@ namespace WebApplication.Web.DAL
     {
 
         const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
-        const string AddRecipeString = " INSERT INTO recipes(description, name, instructions, cookTime, prepTime, recipeType, gluten, vegetarian, dairy, nuts, vegan, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium) " +
-            "values(@description, @name, @instructions, @cookTime, @prepTime, @recipeType, @gluten, @vegetarian, @dairy, @nuts, @vegan, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein, @fiber, @cholesterol, @sodium)";
+        const string AddRecipeString = " INSERT INTO recipes(recipeId, recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
+            "@recipeId, @recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein	fiber, @cholesterol, @sodium, @recipeImage)";
         const string RecipeListTop5String = "Select * from recipes";
         const string GetAllRecipesString = "SELECT * from recipes";
         const string GetAllUserRecipesString = " ";
@@ -44,7 +44,7 @@ namespace WebApplication.Web.DAL
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                int affectRows = connection.Execute(AddRecipeString, dapperDemoRecipe);
+                int affectRows = connection.Execute(AddRecipeString, newRecipe);
                 return affectRows;
 
             }
