@@ -65,9 +65,9 @@ CREATE TABLE mealPlans
 CREATE TABLE users
 (
 	userId int IDENTITY(1,1) NOT NULL,
-	recipeId int NOT NULL,
-	mealPlanId int NOT NULL,
-	groceryListId int NOT NULL,
+	recipeId int NULL,
+	mealPlanId int NULL,
+	groceryListId int NULL,
 	username varchar(50) NOT NULL,
 	password varchar(50) NOT NULL,
 	salt varchar(50) NOT NULL,
