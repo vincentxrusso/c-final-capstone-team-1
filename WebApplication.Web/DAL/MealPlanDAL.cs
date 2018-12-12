@@ -7,5 +7,20 @@ namespace WebApplication.Web.DAL
 {
     public class MealPlanDAL
     {
+        const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
