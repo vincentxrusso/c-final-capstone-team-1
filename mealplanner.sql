@@ -26,8 +26,6 @@ CREATE TABLE groceryLists
 CREATE TABLE recipes
 (
 	recipeId int IDENTITY(1,1) NOT NULL,
-	ingredientId int NOT NULL,
-	userId int NOT NULL,
 	recipeDescription varchar(max) NULL,
 	recipeName varchar(50) NULL,
 	instructions varchar(max) NULL,
@@ -49,8 +47,7 @@ CREATE TABLE recipes
 	sodium float NULL,
 	recipeImage varchar(max) NULL,
 
-	constraint pk_recipeId primary key(recipeId),
-	constraint fk_ingredientId1 foreign key(ingredientId) references ingredients (ingredientId)
+	constraint pk_recipeId primary key(recipeId)
 );
 
 CREATE TABLE mealPlans
