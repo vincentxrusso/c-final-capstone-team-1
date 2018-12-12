@@ -19,11 +19,11 @@ namespace WebApplication.Web.Models
         public int CookTime { get; set; }
         public int PrepTime { get; set; }
         public string RecipeType { get; set; }
-        public bool Gluten { get; set; }
-        public bool Vegetarian { get; set; }
-        public bool Dairy { get; set; }
-        public bool Nuts { get; set; }
-        public bool Vegan { get; set; }
+        public bool GlutenFree { get; set; }
+        public bool VegetarianFriendly { get; set; }
+        public bool DairyFree { get; set; }
+        public bool NutFree { get; set; }
+        public bool VeganFriendly { get; set; }
         public int Servings { get; set; }
         public int CaloriesPerServing { get; set; }
         public double Fat { get; set; }
