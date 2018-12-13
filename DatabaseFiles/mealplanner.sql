@@ -14,8 +14,8 @@ CREATE TABLE ingredients
 CREATE TABLE groceryLists
 (
 	groceryListId int IDENTITY(1,1) NOT NULL,
-	ingredientId int NOT NULL,
-	item varchar(50) NOT NULL,
+	ingredientId int NULL,
+	item varchar(50) NULL,
 	groceryListImage varchar(50) NULL,
 	quantity int NULL,
 
@@ -53,10 +53,10 @@ CREATE TABLE recipes
 CREATE TABLE mealPlans
 (
 	mealPlanId int IDENTITY(1,1) NOT NULL,
-	recipeId int NOT NULL,
+	recipeId int NULL,
 	mealPlanName varchar(50) NOT NULL,
 	mealPlanImage varchar(50) NULL,
-	recipeCount int NOT NULL,
+	recipeCount int NULL,
 
 	constraint pk_mealPlanId primary key(mealPlanId), 
 	constraint fk_recipeId1 foreign key(recipeId) references recipes (recipeId)
@@ -86,6 +86,17 @@ CREATE TABLE recipes_ingredients
 
 	constraint fk_recipeId3 foreign key (recipeId) references recipes (recipeId),
 	constraint fk_ingredientId3 foreign key (ingredientId) references ingredients (ingredientId)
+
+
+
 );
+
+
+
+
+
+
+
+
 
 COMMIT TRANSACTION;
