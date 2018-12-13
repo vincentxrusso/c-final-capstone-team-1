@@ -8,8 +8,7 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 90%;
 }
 
 /* Carousel */
@@ -34,4 +33,13 @@ body {
     .carousel-caption {
         display: none;
     }
+}
+
+.recipeImage {
+    
+    width: 100%;
+}
+
+#buttonOnHomePage {
+    
 }
