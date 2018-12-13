@@ -8,7 +8,7 @@ using Dapper;
 
 namespace WebApplication.Web.DAL
 {
-    public class MealPlanDAL : IMealPlanDAL
+    public class MealPlanDAL 
     {
 
 
@@ -16,7 +16,7 @@ namespace WebApplication.Web.DAL
         const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
         const string AddMealPlanString = " INSERT INTO mealPlans (recipeId, mealPlanName, mealPlanImage) " +
             "@recipeId, @mealPlanName, @mealPlanImage)";
-        const string GetAllMealPlans = "Select * from mealPlan";
+        const string GetAllMealPlans = "Select * from mealPlans";
         
         const string GetAllUserRecipesString = " ";
         
