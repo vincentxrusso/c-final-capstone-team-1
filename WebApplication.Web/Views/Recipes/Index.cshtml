@@ -6,41 +6,52 @@
 
 <style>
 
-
+    body {
+        height: 100%;
+        width: 100%;
+        background-image: url("https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1656196/1360/906/m1/fpnw/wm1/ees6hqqmdfyfpd2mm0hkqwvhrffoozof6ptm7b4ncvatl3vzwwsercpqc3jnoa3c-.jpg?1473853235&s=740980438cd956b3c2024cff83dddf5d");
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 </style>
 
 <body>
-    <div >
+    <div class="topRecipes">
+        <h2 align="center" style="color: white;">All Recipes</h2>
+        <br />
+        <br />
+        <br />
         <div class="container-fluid">
-                    <h2 align="center" style=" color: brown; "> Our Recipes- Your Meal Plan</h2>
             <div class="row">
-                <div class=" col-md-4 ">
+                <div>
                     @{ foreach (Recipes recipe in Model)
                         {
-                            <div class="inline-block" style="color: black; font-size: large; font-style: oblique;">
+                            <div class="col-md-4">
+                                <a href="/Recipes/Detail">
+                                    <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
+                                </a>
 
+                                <div class="inline-block" style="color: white; font-size: large; font-style: oblique;">
 
-                                <p> @recipe.RecipeName</p>
-                                <p>@recipe.RecipeDescription</p>
-                                <p>@recipe.CaloriesPerServing Calories Per Serving</p>
-
+                                    <p>@recipe.RecipeName</p>
+                                    
+                                </div>
                             </div>
 
                         }
                     }
-                    <p>
-                        <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 20%">Go To Your Meal Plan</a>
-                      
-                        <a href="/Account/Register" class="btn btn-warning" style="margin-left: 60%">Not Registered? Sign Up!</a>
-                    </p>
+
 
                 </div>
             </div>
         </div>
+        <div>
+            <p id="buttonOnAllRecipesPage">
+                <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 20%">My Meal Plan</a>
+                <a href="/Account/Register" class="btn btn-warning" style="margin-left: 35%">Not Registered? Sign Up!</a>
+            </p>
 
-
-
-
+        </div>
 
     </div>
 </body>

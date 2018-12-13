@@ -8,7 +8,7 @@
     body {
         height: 100%;
         width: 100%;
-        background-image: url("https://i1.wp.com/static1.squarespace.com/static/56c3a2c11bbee05e5e959908/t/59e7f139d74cff9265e5754b/1508372817664/cuttingboard.jpg");
+        background-image: url("https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/2546539/1360/1017/m1/fpnw/wm1/fkrk6l2fcfu26zvtltbjvtpr74mzzqeorvci7i5eqmskze2gp0yo8qlr4hmmu3dl-.jpg?1492198644&s=9ae305bac348096093fc4e00ba0d2b89");
         background-size: 100%;
         background-attachment: fixed;
     }
@@ -17,14 +17,14 @@
 <body>
     <div>
         <div class="container-fluid">
-            <h2 align="center" style="color: antiquewhite;">Your Meal Plans</h2>
+            <h2 align="center" style="color: white;">Your Meal Plans</h2>
             <div class="row">
 
                 @{ foreach (MealPlans plan in Model)
                     {
                         <div class="col-md-4">
                             <img class="mealPlanImage" src="@plan.MealPlanImage" alt="Meal Plan Image">
-                            <div class="inline-block" style="color: blanchedalmond; font-size: large; font-style: oblique;">
+                            <div class="inline-block" style="color: white; font-size: large; font-style: oblique;">
 
 
                                 <p>@plan.MealPlanName</p>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <p id="buttonOnMealPlanPage">
-            <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 20%">Add Recipe</a>
+            <a href="/Recipes/Index" class="btn btn-success" style="margin-left: 20%">All Recipes</a>
             <a href="/Account/Register" class="btn btn-warning" style="margin-left: 35%">Not Registered? Sign Up!</a>
         </p>
     </div>
