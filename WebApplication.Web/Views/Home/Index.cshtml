@@ -26,7 +26,7 @@
 
 <body>
     <div class="topRecipes">
-        <h2 align="center" style=" color: antiquewhite; "> Welcome to the Capstone Meal Planner</h2>
+        <h2 align="center" style="color: antiquewhite;"> Welcome to the Capstone Meal Planner</h2>
         <br />
         <br />
         <br />
@@ -36,7 +36,9 @@
                     @{ foreach (Recipes recipe in Model)
                         {
                             <div class="col-md-4">
-                                <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
+                                <a href="/Recipes/Detail">
+                                    <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
+                                </a>
 
                                 <div class="inline-block" style="color: blanchedalmond; font-size: large; font-style: oblique;">
 

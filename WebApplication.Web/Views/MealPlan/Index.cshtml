@@ -3,42 +3,44 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Meal Plans</h2>
 <style>
+
+    body {
+        height: 100%;
+        width: 100%;
+        background-image: url("https://i1.wp.com/static1.squarespace.com/static/56c3a2c11bbee05e5e959908/t/59e7f139d74cff9265e5754b/1508372817664/cuttingboard.jpg");
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 </style>
 
 <body>
     <div>
         <div class="container-fluid">
-            <h2 align="center" style=" color: brown; ">Your Meal Plans</h2>
+            <h2 align="center" style="color: antiquewhite;">Your Meal Plans</h2>
             <div class="row">
-                <div class=" col-md-4 ">
-                    @{ foreach (MealPlans plan in Model)
-                        {
-                            <div class="inline-block" style="color: black; font-size: large; font-style: oblique;">
+
+                @{ foreach (MealPlans plan in Model)
+                    {
+                        <div class="col-md-4">
+                            <img class="mealPlanImage" src="@plan.MealPlanImage" alt="Meal Plan Image">
+                            <div class="inline-block" style="color: blanchedalmond; font-size: large; font-style: oblique;">
 
 
-                                <p> @plan.MealPlanName</p>
-                                <p>@plan.MealPlanImage</p>
+                                <p>@plan.MealPlanName</p>
                                 <p>@plan.RecipeCount Recipes Added</p>
 
                             </div>
-
-                        }
+                        </div>
                     }
-                    <p>
-                        <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 20%">Add Recipe</a>
+                }
 
-                        <a href="/Account/Register" class="btn btn-warning" style="margin-left: 60%">Not Registered? Sign Up!</a>
-                    </p>
 
-                </div>
             </div>
         </div>
-
-
-
-
-
+        <p id="buttonOnMealPlanPage">
+            <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 20%">Add Recipe</a>
+            <a href="/Account/Register" class="btn btn-warning" style="margin-left: 35%">Not Registered? Sign Up!</a>
+        </p>
     </div>
 </body>
