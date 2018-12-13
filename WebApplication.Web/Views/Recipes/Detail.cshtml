@@ -3,5 +3,53 @@
     ViewData["Title"] = "Detail";
 }
 
-<h2>Detail</h2>
+<style>
 
+    body {
+        height: 100%;
+        width: 100%;
+        background-image: url("https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/823693/1360/1360/m1/fpnw/wm1/buqkzxlrckikgmzjaogf4fqtlq5fiuknwz6zuxznhidpfotutgxtco0gilufrl6e-.jpg?1449061520&s=ab9301f3c20303a393b3a3340ed6ca7e");
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+</style>
+
+<body>
+    <div class="topRecipes">
+        <h2 align="center" style="color: white;">Recipe Details</h2>
+        <br />
+        <br />
+        <br />
+        <div class="container-fluid">
+            <div class="row">
+                <div>
+                    @{ foreach (Recipes recipe in Model)
+                        {
+                            <div class="col-md-4">
+
+                                <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
+
+                                <div class="inline-block" style="color: white; font-size: large; font-style: oblique;">
+
+                                    <p>@recipe.RecipeName</p>
+
+                                </div>
+                            </div>
+
+                        }
+                    }
+
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <p id="buttonOnAllRecipesPage">
+                <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 20%">My Meal Plan</a>
+                <a href="/Account/Register" class="btn btn-warning" style="margin-left: 35%">Not Registered? Sign Up!</a>
+            </p>
+
+        </div>
+
+    </div>
+</body>
