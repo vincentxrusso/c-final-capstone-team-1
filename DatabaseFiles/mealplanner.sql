@@ -54,8 +54,8 @@ CREATE TABLE mealPlans
 (
 	mealPlanId int IDENTITY(1,1) NOT NULL,
 	recipeId int NULL,
-	mealPlanName varchar(50) NOT NULL,
-	mealPlanImage varchar(50) NULL,
+	mealPlanName varchar(max) NOT NULL,
+	mealPlanImage varchar(max) NULL,
 	recipeCount int NULL,
 
 	constraint pk_mealPlanId primary key(mealPlanId), 
@@ -86,17 +86,6 @@ CREATE TABLE recipes_ingredients
 
 	constraint fk_recipeId3 foreign key (recipeId) references recipes (recipeId),
 	constraint fk_ingredientId3 foreign key (ingredientId) references ingredients (ingredientId)
-
-
-
 );
-
-
-
-
-
-
-
-
 
 COMMIT TRANSACTION;
