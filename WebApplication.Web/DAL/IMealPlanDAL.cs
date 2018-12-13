@@ -7,5 +7,6 @@ namespace WebApplication.Web.DAL
 {
     interface IMealPlanDAL
     {
+        IList<MealPlans> GetMealPlans()
     }
 }

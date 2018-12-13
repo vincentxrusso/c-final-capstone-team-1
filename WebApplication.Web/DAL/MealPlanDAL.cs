@@ -34,7 +34,25 @@ namespace WebApplication.Web.DAL
 
         }
 
+        public IList<MealPlans> GetMealPlans()
+        {
 
+            IList<MealPlans> allRecipes = new List<MealPlans>();
+
+            {
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    IList<MealPlans> results = connection.Query<MealPlans>(GetAllMealPlans).ToList();
+                    return results;
+
+                }
+            }
+
+
+
+        }
 
 
 

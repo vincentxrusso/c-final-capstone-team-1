@@ -14,8 +14,10 @@ namespace WebApplication.Web.Models
         public string RecipeDescription { get; set; }
         public string RecipeName{ get; set; }
         public string Instructions { get; set; }
+
         //in minutes
         public int CookTime { get; set; }
+
         public int PrepTime { get; set; }
         public string RecipeType { get; set; }
         public bool GlutenFree { get; set; }

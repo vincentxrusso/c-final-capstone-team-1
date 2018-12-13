@@ -14,7 +14,7 @@ namespace WebApplication.Web.Controllers
         public IActionResult Index()
         {
             RecipeDAL dal = new RecipeDAL();
-            return View(dal.recipesTop5());
+            return View(dal.RecipesTop5());
         }
 
         public IActionResult About()

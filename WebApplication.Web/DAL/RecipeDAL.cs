@@ -8,10 +8,11 @@ using WebApplication.Web.Models;
 
 namespace WebApplication.Web.DAL
 {
-    public class RecipeDAL
+    public class RecipeDAL :IRecipeDAL
     {
 
         const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
+
         const string AddRecipeString = " INSERT INTO recipes(recipeId, recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
             "@recipeId, @recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein	fiber, @cholesterol, @sodium, @recipeImage)";
         const string RecipeListTop5String = "Select * from recipes";
@@ -52,7 +53,7 @@ namespace WebApplication.Web.DAL
         }
 
         //This method is to display top 5 recipes for the home index below the log in and register for aesthetics
-        public List<Recipes> recipesTop5()
+        public IList<Recipes> RecipesTop5()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -63,7 +64,7 @@ namespace WebApplication.Web.DAL
         }
 
         // This method is to retrieve all the recipes so that the user can choose which ones to join to their meal plan organizer.
-        public IList<Recipes> getRecipes()
+        public IList<Recipes> GetRecipes()
         {
 
             IList<Recipes> allRecipes = new List<Recipes>();
@@ -84,7 +85,7 @@ namespace WebApplication.Web.DAL
         }
 
         // join sql query between recipes and user and ingredients
-        public IList<Recipes> getRecipesForUser(int userId)
+        public IList<Recipes> GetRecipesForUser(int userId)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))
