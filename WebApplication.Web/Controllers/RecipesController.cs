@@ -17,5 +17,11 @@ namespace WebApplication.Web.Controllers
             return View(dal.GetRecipes());
         }
 
+        public IActionResult Detail()
+        {
+            RecipeDAL dal = new RecipeDAL();
+            return View(dal.GetRecipes());
+        }
+
     }
 }

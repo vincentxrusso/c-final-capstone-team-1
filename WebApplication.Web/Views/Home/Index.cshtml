@@ -14,7 +14,6 @@
         <h2>Welcome @((string)Session[SessionKeys.Username])!</h2>
     }*@
 <style>
-
     body {
         height: 100%;
         width: 100%;
@@ -39,18 +38,13 @@
                                 <a href="/Recipes/Detail">
                                     <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
                                 </a>
-
                                 <div class="inline-block" style="color: blanchedalmond; font-size: large; font-style: oblique;">
-
                                     <p>@recipe.RecipeName</p>
                                     <p>@recipe.CookTime minutes of cook time.</p>
                                 </div>
                             </div>
-
                         }
                     }
-
-
                 </div>
             </div>
         </div>
@@ -60,8 +54,6 @@
                 <a href="/Recipes/Index" class="btn btn-primary" style="margin-left: 27%">All Recipes</a>
                 <a href="/Account/Register" class="btn btn-warning" style="margin-left: 29%">Not Registered? Sign Up!</a>
             </p>
-
         </div>
-
     </div>
 </body>
