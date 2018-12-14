@@ -13,11 +13,11 @@ namespace WebApplication.Web.DAL
 
         const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
 
-        const string AddRecipeString = " INSERT INTO recipes(recipeId, recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
-            "@recipeId, @recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein	fiber, @cholesterol, @sodium, @recipeImage)";
-        const string RecipeListTop5String = "Select * from recipes";
-        const string GetAllRecipesString = "SELECT * from recipes";
-        const string GetAllUserRecipesString = "Select * from recipes where user ";
+        const string AddRecipeString = " INSERT INTO recipes(recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
+            "values (@recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein, @fiber, @cholesterol, @sodium, @recipeImage);";
+        const string RecipeListTop5String = "Select * from recipes;";
+        const string GetAllRecipesString = "SELECT * from recipes;";
+        const string GetAllUserRecipesString = "Select * from recipes where user ;";
         public Recipes dapperDemoRecipe = new Recipes();
 
         public int addRecipes(Recipes newRecipe)

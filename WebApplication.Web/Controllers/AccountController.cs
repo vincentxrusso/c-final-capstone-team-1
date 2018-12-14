@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication.Web.DAL;
+using WebApplication.Web.Models;
 using WebApplication.Web.Models.Account;
 using WebApplication.Web.Providers.Auth;
 
@@ -19,12 +21,13 @@ namespace WebApplication.Web.Controllers
         [AuthorizationFilter] // actions can be filtered to only those that are logged in
         //[AuthorizationFilter("Admin", "Author", "Manager")]  <-- or filtered to only those that have a certain role
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(Func<Recipes, int> addRecipes)
         {
             var user = authProvider.GetCurrentUser();
+            RecipeDAL dal = new RecipeDAL();
 
-            return View(user);
-        }
+            return View();
+        }    
 
         [HttpGet]
         public IActionResult Login()
