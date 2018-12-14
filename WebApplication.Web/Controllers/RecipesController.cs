@@ -11,7 +11,7 @@ namespace WebApplication.Web.Controllers
 {
     public class RecipesController : Controller
     {
-        IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
+        RecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
         
         public IActionResult Index()
         {

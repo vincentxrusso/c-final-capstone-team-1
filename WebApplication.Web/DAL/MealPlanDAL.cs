@@ -8,7 +8,7 @@ using Dapper;
 
 namespace WebApplication.Web.DAL
 {
-    public class MealPlanDAL 
+    public class MealPlanDAL :IMealPlanDAL
     {
         private readonly string connectionString;
 

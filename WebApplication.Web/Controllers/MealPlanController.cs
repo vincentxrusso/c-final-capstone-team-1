@@ -11,23 +11,27 @@ namespace WebApplication.Web.Controllers
 {
     public class MealPlanController : Controller
     {
+
+        IMealPlanDAL mealPlanDAL = new MealPlanDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
+        RecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
+
         public IActionResult Index()
         {
-            MealPlanDAL dal = new MealPlanDAL();
-            return View(dal.GetMealPlans());
+           
+            return View(mealPlanDAL.GetMealPlans());
         }
-        public IActionResult MealPlanSetUp()
-        {
-            MealPlans PlanB = new MealPlans();
-            RecipeDAL dal = new RecipeDAL();
-            PlanB.Recipes = dal.GetRecipes();
+        //public IActionResult MealPlanSetUp()
+        //{
+        //    //MealPlans PlanB = new MealPlans();
+        //    //RecipeDAL dal = new RecipeDAL();
+        //    //PlanB.Recipes = dal.GetRecipes();
             
-            return View(PlanB);
-        }
+        //    return View(PlanB);
+        //}
         public IActionResult RecipesToAddToMealPlan()
         {
-            RecipeDAL dal = new RecipeDAL();
-            return View(dal.DropDownRecipeGet());
+
+            return View(recipeDAL.DropDownRecipeGet());
         }
         
         public IActionResult AddMealPlan()

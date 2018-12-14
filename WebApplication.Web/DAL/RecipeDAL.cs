@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication.Web.DAL
 {
-    public class RecipeDAL :IRecipeDAL
+    public class RecipeDAL 
     {
         private readonly string connectionString;
 
@@ -17,6 +17,8 @@ namespace WebApplication.Web.DAL
         {
             this.connectionString = connectionString;
         }
+       
+
 
         const string AddRecipeString = " INSERT INTO recipes(recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
             "values (@recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein, @fiber, @cholesterol, @sodium, @recipeImage);";

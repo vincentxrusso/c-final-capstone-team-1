@@ -11,5 +11,6 @@ namespace WebApplication.Web.DAL
         IList<Recipes> GetRecipes();
         IList<Recipes> RecipesTop5();
         void AddRecipe(Recipes newRecipe);
+        string DropDownRecipeGet();
     }
 }

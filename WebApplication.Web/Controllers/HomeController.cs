@@ -10,7 +10,7 @@ namespace WebApplication.Web.Controllers
 {
     public class HomeController : Controller
     {
-        IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
+        RecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
 
         [HttpGet]
         public IActionResult Index()
