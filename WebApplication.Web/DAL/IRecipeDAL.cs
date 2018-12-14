@@ -10,7 +10,8 @@ namespace WebApplication.Web.DAL
     {
         IList<Recipes> GetRecipes();
         IList<Recipes> RecipesTop5();
+        IList<Recipes> GetRecipesForUser(int userId);
         void AddRecipe(Recipes newRecipe);
-        string DropDownRecipeGet();
+        Recipes DropDownRecipeGet();
     }
 }

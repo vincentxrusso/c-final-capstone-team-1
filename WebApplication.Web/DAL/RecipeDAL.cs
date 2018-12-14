@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication.Web.DAL
 {
-    public class RecipeDAL 
+    public class RecipeDAL : IRecipeDAL
     {
         private readonly string connectionString;
 

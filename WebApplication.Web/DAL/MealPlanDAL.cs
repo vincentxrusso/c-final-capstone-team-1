@@ -24,14 +24,14 @@ namespace WebApplication.Web.DAL
         const string GetAllUserRecipesString = " ";
         
 
-        public int addMealPlan(MealPlans newPlan)
+        public void AddMealPlan(MealPlans newPlan)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 int affectRows = connection.Execute(AddMealPlanString, newPlan);
-                return affectRows;
+                
 
             }
 
