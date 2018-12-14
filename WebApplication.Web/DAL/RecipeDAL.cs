@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data.SqlClient;
 using WebApplication.Web.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication.Web.DAL
 {
@@ -51,6 +52,27 @@ namespace WebApplication.Web.DAL
             }
 
         }
+
+
+        
+        public Recipes DropDownRecipeGet()
+        {
+            Recipes result =new Recipes();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                List<Recipes> DropDownRecipeList = connection.Query<Recipes>(GetAllRecipesString).ToList();
+                foreach (Recipes recipe in DropDownRecipeList)
+                {
+                    SelectListItem choice = new SelectListItem() { Text = recipe.RecipeName.ToString(), Value = recipe.RecipeName.ToString() };
+                    result.RecipeDropDown.Add(choice);
+                }
+                
+            }
+            return result;
+        }
+
+
 
         //This method is to display top 5 recipes for the home index below the log in and register for aesthetics
         public IList<Recipes> RecipesTop5()

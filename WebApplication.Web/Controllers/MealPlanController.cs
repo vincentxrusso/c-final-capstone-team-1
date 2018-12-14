@@ -16,5 +16,25 @@ namespace WebApplication.Web.Controllers
             MealPlanDAL dal = new MealPlanDAL();
             return View(dal.GetMealPlans());
         }
+        public IActionResult MealPlanSetUp()
+        {
+            MealPlans PlanB = new MealPlans();
+            RecipeDAL dal = new RecipeDAL();
+            PlanB.Recipes = dal.GetRecipes();
+            
+            return View(PlanB);
+        }
+        public IActionResult RecipesToAddToMealPlan()
+        {
+            RecipeDAL dal = new RecipeDAL();
+            return View(dal.DropDownRecipeGet());
+        }
+        
+        public IActionResult AddMealPlan()
+        {
+            MealPlans whatever = new MealPlans();
+            return View(whatever);
+
+        }
     }
 }

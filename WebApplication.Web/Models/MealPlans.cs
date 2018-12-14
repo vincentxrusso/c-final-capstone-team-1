@@ -10,9 +10,12 @@ namespace WebApplication.Web.Models
     public class MealPlans
     {
         public int MealPlanId { get; set; }
-        public int RecipeId { get; set; }
+        public List<int> RecipeId { get; set; }
         public string MealPlanName { get; set; }
         public string MealPlanImage { get; set; }
         public int RecipeCount { get; set; }
+
+        public IList<Recipes> Recipes { get; set; }
     }
+    
 }

@@ -34,5 +34,9 @@ namespace WebApplication.Web.Models
         public double Cholesterol { get; set; }
         public double Sodium { get; set; }
         public string RecipeImage { get; set; }
+
+        public string ChosenRecipe { get; set; }
+        public List<SelectListItem> RecipeDropDown { get; set; }
+
     }
 }

@@ -1,0 +1,31 @@
+﻿@model MealPlans
+@{
+    ViewData["Title"] = "AddMealPlan";
+}
+
+<h2>AddMealPlan</h2>
+
+
+<form asp-controller="MealPlan" asp-action="AddMealPlan" method="post">
+
+    <div>
+        <label asp-for="MealPlanName">Meal Plan Name</label>
+        <input class="Spacing2" asp-for="MealPlanName" asp-items="Model.MealPlanName" />
+    </div>
+
+    @*<div>
+            <label asp-for="state">State of Residence</label>
+            <select class="Spacing3" asp-for="state" asp-items="SurveyModel.StatesAbb"></select>
+        </div>
+        <div>
+            <label asp-for="activityLevel">Activity Level</label>
+            <select class="Spacing4" asp-for="activityLevel" asp-items="SurveyModel.Active"></select>
+        </div>*@
+    <div id="button">
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+<div>
+    <partial name="RecipesToAddToMealPlan.cshtml" model="Recipes" />
+</div>
+
