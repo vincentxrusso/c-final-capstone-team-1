@@ -14,11 +14,10 @@
         <h2>Welcome @((string)Session[SessionKeys.Username])!</h2>
     }*@
 <style>
-
     body {
         height: 100%;
         width: 100%;
-        background-image: url("http://www.grewarsfarmshop.co.uk/wp-content/uploads/2017/02/List-Of-Top-Cutting-Board-Background-Images.jpg");
+        background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-HD-Pictures-Food-PIC-WPD006582.jpg");
         background-size: 100%;
         background-attachment: fixed;
     }
@@ -26,7 +25,7 @@
 
 <body>
     <div class="topRecipes">
-        <h2 align="center" style="color: antiquewhite;"> Welcome to the Capstone Meal Planner</h2>
+        <h2 align="center" style="color: orange; font-size: xx-large"> Welcome to the Capstone Meal Planner</h2>
         <br />
         <br />
         <br />
@@ -39,18 +38,13 @@
                                 <a href="/Recipes/Detail">
                                     <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
                                 </a>
-
-                                <div class="inline-block" style="color: blanchedalmond; font-size: large; font-style: oblique;">
-
+                                <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
                                     <p>@recipe.RecipeName</p>
                                     <p>@recipe.CookTime minutes of cook time.</p>
                                 </div>
                             </div>
-
                         }
                     }
-
-
                 </div>
             </div>
         </div>
@@ -60,8 +54,6 @@
                 <a href="/Recipes/Index" class="btn btn-primary" style="margin-left: 27%">All Recipes</a>
                 <a href="/Account/Register" class="btn btn-warning" style="margin-left: 29%">Not Registered? Sign Up!</a>
             </p>
-
         </div>
-
     </div>
 </body>

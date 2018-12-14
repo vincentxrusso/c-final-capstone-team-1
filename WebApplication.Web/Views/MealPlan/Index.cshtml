@@ -4,11 +4,10 @@
 }
 
 <style>
-
     body {
         height: 100%;
         width: 100%;
-        background-image: url("https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/2546539/1360/1017/m1/fpnw/wm1/fkrk6l2fcfu26zvtltbjvtpr74mzzqeorvci7i5eqmskze2gp0yo8qlr4hmmu3dl-.jpg?1492198644&s=9ae305bac348096093fc4e00ba0d2b89");
+        background-image: url("http://pixymotion.pictures/Cat/Food/Delicious%20Food%20Wallpapers/Delicious%20Food%20Wallpapers%202%20(2).jpg");
         background-size: 100%;
         background-attachment: fixed;
     }
@@ -17,25 +16,19 @@
 <body>
     <div>
         <div class="container-fluid">
-            <h2 align="center" style="color: white;">Your Meal Plans</h2>
+            <h2 align="center" style="color: orange; font-size: xx-large">Your Meal Plans</h2>
             <div class="row">
-
                 @{ foreach (MealPlans plan in Model)
                     {
                         <div class="col-md-4">
                             <img class="mealPlanImage" src="@plan.MealPlanImage" alt="Meal Plan Image">
-                            <div class="inline-block" style="color: white; font-size: large; font-style: oblique;">
-
-
+                            <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
                                 <p>@plan.MealPlanName</p>
                                 <p>@plan.RecipeCount Recipes Added</p>
-
                             </div>
                         </div>
                     }
                 }
-
-
             </div>
         </div>
         <p id="buttonOnMealPlanPage">

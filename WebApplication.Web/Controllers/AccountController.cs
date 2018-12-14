@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication.Web.DAL;
+using WebApplication.Web.Models;
 using WebApplication.Web.Models.Account;
 using WebApplication.Web.Providers.Auth;
 
@@ -24,7 +26,7 @@ namespace WebApplication.Web.Controllers
             var user = authProvider.GetCurrentUser();
 
             return View(user);
-        }
+        }       
 
         [HttpGet]
         public IActionResult Login()
@@ -34,7 +36,7 @@ namespace WebApplication.Web.Controllers
                 // Redirect the user where you want them to go after successful login
                 return RedirectToAction("Index", "Home");
             }
-            else  return View();
+            else return View();
         }
 
         [HttpPost]

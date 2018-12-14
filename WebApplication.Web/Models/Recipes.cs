@@ -10,14 +10,10 @@ namespace WebApplication.Web.Models
     public class Recipes
     {
         public int RecipeId { get; set; }
-       
         public string RecipeDescription { get; set; }
-        public string RecipeName{ get; set; }
+        public string RecipeName { get; set; }
         public string Instructions { get; set; }
-
-        //in minutes
         public int CookTime { get; set; }
-
         public int PrepTime { get; set; }
         public string RecipeType { get; set; }
         public bool GlutenFree { get; set; }
@@ -38,5 +34,12 @@ namespace WebApplication.Web.Models
         public string ChosenRecipe { get; set; }
         public List<SelectListItem> RecipeDropDown { get; set; }
 
+        public static List<SelectListItem> RecipeTypes = new List<SelectListItem>()
+        {
+            new SelectListItem() { Text = "Breakfast", Value = "Breakfast"},
+            new SelectListItem() { Text = "Lunch", Value = "Lunch"},
+            new SelectListItem() { Text = "Dinner", Value = "Dinner"},
+            new SelectListItem() { Text = "Snack", Value = "Snack"}
+        };
     }
 }

@@ -1,0 +1,143 @@
+﻿@model Recipes
+@{
+    ViewData["Title"] = "AddRecipe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        height: 100%;
+        width: 100%;
+        background-image: url("https://images.wallpaperscraft.com/image/notebook_pencil_recipe_seasoning_board_77512_2048x1152.jpg");
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+</style>
+
+<h2 align="center" style="color: orange; font-size: xx-large">Add Recipe</h2>
+
+<form asp-controller="AccountController" asp-action="AddRecipe" method="post">
+    <div class="labels">
+        <label asp-for="RecipeDescription">Recipe Description:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="RecipeDescription" />
+    </div>
+    <div class="labels">
+        <label asp-for="RecipeName">Recipe Name:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="RecipeName" />
+    </div>
+    <div class="labels">
+        <label asp-for="Instructions">Instructions (separate each step by a pipe(|)):</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="Instructions" />
+    </div>
+    <div class="labels">
+        <label asp-for="CookTime">Cook Time in minutes:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="CookTime" />
+    </div>
+    <div class="labels">
+        <label asp-for="PrepTime">Prep Time in minutes:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="PrepTime" />
+    </div>
+    <div class="labels">
+        <label asp-for="RecipeType">Recipe Type:</label>
+    </div>
+    <div class="fields">
+        <select asp-for="RecipeType" asp-items="Recipes.RecipeTypes"></select>
+    </div>
+    <div class="labels">
+        <label asp-for="GlutenFree">Gluten Free:</label>
+    </div>
+    <div class="fields">
+        <input type="checkbox" value="1" asp-for="GlutenFree" />
+    </div>
+    <div class="labels">
+        <label asp-for="VegetarianFriendly">Vegetarian Friendly:</label>
+    </div>
+    <div class="fields">
+        <input type="checkbox" value="1" asp-for="VegetarianFriendly" />
+    </div>
+    <div class="labels">
+        <label asp-for="DairyFree">Dairy Free:</label>
+    </div>
+    <div class="fields">
+        <input type="checkbox" value="1" asp-for="DairyFree" />
+    </div>
+    <div class="labels">
+        <label asp-for="NutFree">Nut Free:</label>
+    </div>
+    <div class="fields">
+        <input type="checkbox" value="1" asp-for="NutFree" />
+    </div>
+    <div class="labels">
+        <label asp-for="VeganFriendly">Vegan Friendly:</label>
+    </div>
+    <div class="fields">
+        <input type="checkbox" value="1" asp-for="VeganFriendly" />
+    </div>
+    <div class="labels">
+        <label asp-for="Servings">Servings:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="Servings" />
+    </div>
+    <div class="labels">
+        <label asp-for="CaloriesPerServing">Calories Per Serving:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="CaloriesPerServing" />
+    </div>
+    <div class="labels">
+        <label asp-for="Fat">Fat:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="Fat" />
+    </div>
+    <div class="labels">
+        <label asp-for="Carbohydrates">Carbohydrates:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="Carbohydrates" />
+    </div>
+    <div class="labels">
+        <label asp-for="Protein">Protein:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="Protein" />
+    </div>
+    <div class="labels">
+        <label asp-for="Fiber">Fiber:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="Fiber" />
+    </div>
+    <div class="labels">
+        <label asp-for="Cholesterol">Cholesterol:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="Cholesterol" />
+    </div>
+    <div class="labels">
+        <label asp-for="Sodium">Sodium:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="Sodium" />
+    </div>
+    <div class="labels">
+        <label asp-for="RecipeImage">Recipe Image (enter the url address of the image only):</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="RecipeImage" />
+    </div>
+    <div class="labels">
+        <input type="submit" value="Add Recipe" />
+    </div>
+</form>
