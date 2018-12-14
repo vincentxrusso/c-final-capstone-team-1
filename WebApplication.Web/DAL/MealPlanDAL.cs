@@ -10,10 +10,13 @@ namespace WebApplication.Web.DAL
 {
     public class MealPlanDAL 
     {
+        private readonly string connectionString;
 
+        public MealPlanDAL(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
 
-
-        const string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True";
         const string AddMealPlanString = " INSERT INTO mealPlans (recipeId, mealPlanName, mealPlanImage) " +
             "@recipeId, @mealPlanName, @mealPlanImage)";
         const string GetAllMealPlans = "Select * from mealPlans";

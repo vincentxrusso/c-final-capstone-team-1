@@ -21,13 +21,12 @@ namespace WebApplication.Web.Controllers
         [AuthorizationFilter] // actions can be filtered to only those that are logged in
         //[AuthorizationFilter("Admin", "Author", "Manager")]  <-- or filtered to only those that have a certain role
         [HttpGet]
-        public IActionResult Index(Func<Recipes, int> addRecipes)
+        public IActionResult Index()
         {
             var user = authProvider.GetCurrentUser();
-            RecipeDAL dal = new RecipeDAL();
 
-            return View();
-        }    
+            return View(user);
+        }       
 
         [HttpGet]
         public IActionResult Login()
@@ -37,7 +36,7 @@ namespace WebApplication.Web.Controllers
                 // Redirect the user where you want them to go after successful login
                 return RedirectToAction("Index", "Home");
             }
-            else  return View();
+            else return View();
         }
 
         [HttpPost]

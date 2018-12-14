@@ -11,10 +11,12 @@ namespace WebApplication.Web.Controllers
 {
     public class MealPlanController : Controller
     {
-        public IActionResult Index()
-        {
-            MealPlanDAL dal = new MealPlanDAL();
-            return View(dal.GetMealPlans());
-        }
+        //IMealPlanDAL mealPlanDAL = new MealPlanDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
+
+        //public IActionResult Index()
+        //{
+            
+        //    return View(mealPlanDAL.GetMealPlans());
+        //}
     }
 }

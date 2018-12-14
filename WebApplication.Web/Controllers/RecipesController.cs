@@ -11,17 +11,33 @@ namespace WebApplication.Web.Controllers
 {
     public class RecipesController : Controller
     {
+        IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
+        
         public IActionResult Index()
         {
-            RecipeDAL dal = new RecipeDAL();
-            return View(dal.GetRecipes());
+            
+            return View(recipeDAL.GetRecipes());
         }
 
         public IActionResult Detail()
         {
-            RecipeDAL dal = new RecipeDAL();
-            return View(dal.GetRecipes());
+            
+            return View(recipeDAL.GetRecipes());
         }
 
+        [HttpGet]
+        public IActionResult AddRecipe()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddRecipe(Recipes recipe)
+        {
+            recipeDAL.AddRecipe(recipe);
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
