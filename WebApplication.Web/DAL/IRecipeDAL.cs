@@ -12,6 +12,6 @@ namespace WebApplication.Web.DAL
         IList<Recipes> RecipesTop5();
         IList<Recipes> GetRecipesForUser(int userId);
         void AddRecipe(Recipes newRecipe);
-        Recipes DropDownRecipeGet();
+        AwesomeModel DropDownRecipeGet();
     }
 }

@@ -13,31 +13,39 @@ namespace WebApplication.Web.Controllers
     {
 
         IMealPlanDAL mealPlanDAL = new MealPlanDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
-        RecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
+        IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
 
         public IActionResult Index()
         {
            
             return View(mealPlanDAL.GetMealPlans());
         }
-        //public IActionResult MealPlanSetUp()
-        //{
-        //    //MealPlans PlanB = new MealPlans();
-        //    //RecipeDAL dal = new RecipeDAL();
-        //    //PlanB.Recipes = dal.GetRecipes();
-            
-        //    return View(PlanB);
-        //}
-        public IActionResult RecipesToAddToMealPlan()
-        {
 
-            return View(recipeDAL.DropDownRecipeGet());
-        }
-        
+        //[HttpGet]
+        //public IActionResult RecipesToAddToMealPlan()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult RecipesToAddToMealPlan(AwesomeModel model)
+        //{
+
+        //    return View(recipeDAL.DropDownRecipeGet());
+        //}
+        [HttpGet]
         public IActionResult AddMealPlan()
         {
-            MealPlans whatever = new MealPlans();
-            return View(whatever);
+            
+            return View(new AwesomeModel());
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddMealPlan(AwesomeModel model)
+        {
+
+            return View(new AwesomeModel());
 
         }
     }

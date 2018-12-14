@@ -1,4 +1,4 @@
-﻿@model MealPlans
+﻿@model AwesomeModel
 @{
     ViewData["Title"] = "AddMealPlan";
 }
@@ -9,11 +9,11 @@
 <form asp-controller="MealPlan" asp-action="AddMealPlan" method="post">
 
     <div>
-        <label asp-for="MealPlanName">Meal Plan Name</label>
-        <input class="Spacing2" asp-for="MealPlanName" asp-items="Model.MealPlanName" />
+        <label asp-for="MealPlan.MealPlanName">Meal Plan Name</label>
+        <input class="Spacing2" asp-for="MealPlan.MealPlanName" asp-items="Model.MealPlanName" />
     </div>
 
-    @*<div>
+    @*<div>S
             <label asp-for="state">State of Residence</label>
             <select class="Spacing3" asp-for="state" asp-items="SurveyModel.StatesAbb"></select>
         </div>
@@ -21,11 +21,15 @@
             <label asp-for="activityLevel">Activity Level</label>
             <select class="Spacing4" asp-for="activityLevel" asp-items="SurveyModel.Active"></select>
         </div>*@
+    @*<div>
+        <div class="Spacing0">
+            <label asp-for="Recipe.RecipeName">Recipe to Add</label>
+            <select class="Spacing1" asp-for="Recipe.RecipeName" asp-items="Model.Recipe.RecipeDropDown"></select>
+        </div>
+    </div>*@
     <div id="button">
         <input type="submit" value="Submit" />
     </div>
 </form>
-<div>
-    <partial name="RecipesToAddToMealPlan.cshtml" model="Model" />
-</div>
+
 
