@@ -7,7 +7,7 @@
     body {
         height: 100%;
         width: 100%;
-        background-image: url("https://stmed.net/sites/default/files/food-wallpapers-28249-8282567.jpg");
+        background-image: url("http://pixymotion.pictures/Cat/Food/Delicious%20Food%20Wallpapers/Delicious%20Food%20Wallpapers%202%20(2).jpg");
         background-size: 100%;
         background-attachment: fixed;
     }
@@ -16,13 +16,13 @@
 <body>
     <div>
         <div class="container-fluid">
-            <h2 align="center" style="color: white;">Your Meal Plans</h2>
+            <h2 align="center" style="color: orange; font-size: xx-large">Your Meal Plans</h2>
             <div class="row">
                 @{ foreach (MealPlans plan in Model)
                     {
                         <div class="col-md-4">
                             <img class="mealPlanImage" src="@plan.MealPlanImage" alt="Meal Plan Image">
-                            <div class="inline-block" style="color: white; font-size: large; font-style: oblique;">
+                            <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
                                 <p>@plan.MealPlanName</p>
                                 <p>@plan.RecipeCount Recipes Added</p>
                             </div>
