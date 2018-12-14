@@ -1,12 +1,12 @@
-﻿@model Recipes
+﻿@model AwesomeModel
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 <form asp-controller="MealPlan" asp-action="RecipesToAddToMealPlan" method="get">
     <div>
         <div class="Spacing0">
-            <label asp-for="RecipeName">Recipe to Add</label>
-            <select class="Spacing1" asp-for="RecipeName" asp-items="Model.RecipeDropDown"></select>
+            <label asp-for="Recipe.RecipeName">Recipe to Add</label>
+            <select class="Spacing1" asp-for="Recipe.RecipeName" asp-items="Model.Recipe.RecipeDropDown"></select>
         </div>
     </div>
 

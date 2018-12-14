@@ -33,11 +33,11 @@ namespace WebApplication.Web.Controllers
 
             return View(recipeDAL.DropDownRecipeGet());
         }
-        
+        [HttpGet]
         public IActionResult AddMealPlan()
         {
-            MealPlans whatever = new MealPlans();
-            return View(whatever);
+            AwesomeModel Model;
+            return View(Model);
 
         }
     }

@@ -25,7 +25,7 @@ namespace WebApplication.Web.DAL
         const string RecipeListTop5String = "Select * from recipes;";
         const string GetAllRecipesString = "SELECT * from recipes;";
         const string GetAllUserRecipesString = "Select * from recipes where user ;";
-        public Recipes dapperDemoRecipe = new Recipes();
+     
 
         public void AddRecipe(Recipes newRecipe)
         {           
@@ -38,9 +38,9 @@ namespace WebApplication.Web.DAL
 
 
         
-        public Recipes DropDownRecipeGet()
+        public AwesomeModel DropDownRecipeGet()
         {
-            Recipes result =new Recipes();
+            AwesomeModel result =new AwesomeModel();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -48,7 +48,7 @@ namespace WebApplication.Web.DAL
                 foreach (Recipes recipe in DropDownRecipeList)
                 {
                     SelectListItem choice = new SelectListItem() { Text = recipe.RecipeName.ToString(), Value = recipe.RecipeName.ToString() };
-                    result.RecipeDropDown.Add(choice);
+                    result.Recipe.RecipeDropDown.Add(choice);
                 }
                 
             }
