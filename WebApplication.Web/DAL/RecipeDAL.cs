@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication.Web.DAL
 {
-    public class RecipeDAL 
+    public class RecipeDAL : IRecipeDAL
     {
         private readonly string connectionString;
 
@@ -41,13 +41,16 @@ namespace WebApplication.Web.DAL
         public AwesomeModel DropDownRecipeGet()
         {
             AwesomeModel result =new AwesomeModel();
+            result.Recipe.RecipeDropDown = new List<SelectListItem>();
+            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+                result.Recipe = connection.Query<Recipes>(GetAllRecipesString).ToList()[0];
                 List<Recipes> DropDownRecipeList = connection.Query<Recipes>(GetAllRecipesString).ToList();
                 foreach (Recipes recipe in DropDownRecipeList)
                 {
-                    SelectListItem choice = new SelectListItem() { Text = recipe.RecipeName.ToString(), Value = recipe.RecipeName.ToString() };
+                    SelectListItem choice = new SelectListItem() { Text = recipe.RecipeName, Value = recipe.RecipeName.ToString() };
                     result.Recipe.RecipeDropDown.Add(choice);
                 }
                 

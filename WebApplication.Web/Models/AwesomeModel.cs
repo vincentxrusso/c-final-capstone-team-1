@@ -8,6 +8,7 @@ namespace WebApplication.Web.Models
     public class AwesomeModel
     {
         public Recipes Recipe { get; set; }
+        
         public Users User { get; set; }
         public MealPlans MealPlan { get; set; }
         public Ingredients Ingredient { get; set; }
