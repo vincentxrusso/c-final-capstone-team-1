@@ -137,3 +137,66 @@ values ('Dried Cranberries', 'https://target.scene7.com/is/image/Target/GUEST_c5
 
 insert into ingredients (ingredientName, ingredientImage)
 values ('Lemon Yogurt', 'https://pics.drugstore.com/prodimg/467965/900.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Semi-Sweet Chocolate Chips', 'https://i5.walmartimages.com/asr/7986bcc9-955b-40c3-82f7-a2c5e0126b25_2.f48dc151ea3d906bf5d970b3f620da25.jpeg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Cocoa Powder', 'https://www.nowfoods.com/sites/default/files/styles/product_page_image/public/sku-images/6672_v7.png?itok=V-XcN_xh');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Sorghum Flour', 'https://www.bobsredmill.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/5/2530c224_sorghumflour_f_1800.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Teff Flour', 'https://www.bobsredmill.com/media/catalog/product/cache/1/thumbnail/670x630/9df78eab33525d08d6e5fb8d27136e95/1/5/1534c244_teffflour_f_1800.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Butter', 'https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_299063a1-8b32-4804-96da-ad8ef705ae92.JPG');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Farfalle', 'https://cdn.pixabay.com/photo/2014/10/20/22/05/farfalle-495748_1280.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Boneless Skinless Chicken Breasts', 'https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/3/2/0/0/1330023-1-eng-GB/Poultry-producer-pecks-at-portion-packaging_wrbm_large.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Sun Dried Tomatoes', 'https://i5.walmartimages.com/asr/d94677ef-13d5-4b16-a44a-3b8ba54dec36_1.c30f728e09399a83ae8c617c3051360d.jpeg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Pesto Sauce', 'http://cdn.shopify.com/s/files/1/1957/4651/products/7079690020_600x.jpg?v=1494256156');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Rice Vermicelli', 'https://images-na.ssl-images-amazon.com/images/I/81cAKNthDPL._SY550_.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Rice Wrappers', 'https://2.bp.blogspot.com/-3FhaCCYkySU/UBVmmLxYq6I/AAAAAAAAHMQ/fDIyop9Kw2k/s1600/Vietnamese+Rolls+001.JPG');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Shrimp', 'https://cdnimg.webstaurantstore.com/images/products/extra_large/427850/1598151.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Fresh Basil', 'https://www.precisionnutrition.com/wp-content/uploads/2009/11/basil-bsp.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Mint Leaves', 'https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_f5df8a22-650c-4428-a6db-46e6422acbbb.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Fresh Cilantro', 'http://organicbiomama.com/wp-content/uploads/2017/05/Cilantro-1024x682.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Lettuce', 'https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/2018/ecolitainted.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Fish Sauce', 'https://chefshop.com/GetImage.ashx?Path=~%2FAssets%2FProductImages%2FRed-Boat-Fish-Sauce-40-degree-north.jpg&maintainAspectRatio=true&maxHeight=480&maxWidth=480');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Lime Juice', 'https://images-na.ssl-images-amazon.com/images/I/81PqqS3VybL._SL1500_.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Chili Garlic Sauce', 'https://i5.walmartimages.com/asr/ef7f8902-fa4e-467d-b5b5-c8c86005762f_1.490602a0264d8ad9bd0c04748dcbcdf0.jpeg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Hoisin Sauce', 'https://az836796.vo.msecnd.net/media/image/product/en/large/0067277401152.jpg');
+
+insert into ingredients (ingredientName, ingredientImage)
+values ('Peanuts', 'https://www.stockupexpress.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/0/2/029000073241.png');
