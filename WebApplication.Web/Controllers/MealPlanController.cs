@@ -35,8 +35,8 @@ namespace WebApplication.Web.Controllers
         [HttpGet]
         public IActionResult AddMealPlan()
         {
-            
-            return View(new AwesomeModel());
+        
+            return View(recipeDAL.DropDownRecipeGet());
 
         }
 
@@ -45,7 +45,7 @@ namespace WebApplication.Web.Controllers
         public IActionResult AddMealPlan(AwesomeModel model)
         {
 
-            return View(new AwesomeModel());
+            return View(model);
 
         }
     }

@@ -41,13 +41,14 @@ namespace WebApplication.Web.DAL
         public AwesomeModel DropDownRecipeGet()
         {
             AwesomeModel result =new AwesomeModel();
+            result.Recipe = new Recipes();
             result.Recipe.RecipeDropDown = new List<SelectListItem>();
-            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                result.Recipe = connection.Query<Recipes>(GetAllRecipesString).ToList()[0];
+                
                 List<Recipes> DropDownRecipeList = connection.Query<Recipes>(GetAllRecipesString).ToList();
+
                 foreach (Recipes recipe in DropDownRecipeList)
                 {
                     SelectListItem choice = new SelectListItem() { Text = recipe.RecipeName, Value = recipe.RecipeName.ToString() };
