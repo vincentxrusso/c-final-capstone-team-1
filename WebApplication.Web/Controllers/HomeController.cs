@@ -25,6 +25,13 @@ namespace WebApplication.Web.Controllers
 
             return View();
         }
+        
+        [HttpGet]
+        public IActionResult Detail()
+        {
+
+            return View(recipeDAL.GetRecipes());
+        }
 
         public IActionResult Contact()
         {

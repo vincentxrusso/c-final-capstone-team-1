@@ -44,9 +44,8 @@ namespace WebApplication.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddMealPlan(AwesomeModel model)
         {
-
-            return View(model);
-
+            mealPlanDAL.AddMealPlan(model);
+            return RedirectToAction("index");
         }
     }
 }

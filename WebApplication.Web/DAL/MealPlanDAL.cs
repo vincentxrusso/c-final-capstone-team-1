@@ -18,19 +18,35 @@ namespace WebApplication.Web.DAL
         }
 
         const string AddMealPlanString = " INSERT INTO mealPlans (recipeId, mealPlanName, mealPlanImage) " +
-            "@recipeId, @mealPlanName, @mealPlanImage)";
+            "values (@RecipeId, @MealPlanName, @MealPlanImage);";
         const string GetAllMealPlans = "Select * from mealPlans";
+        const string GetRecipeIDFromName = "SELECT recipeId from recipes where recipeName = @RecipeName;";
         
         const string GetAllUserRecipesString = " ";
         
 
-        public void AddMealPlan(MealPlans newPlan)
+        public void AddMealPlan(AwesomeModel newPlan)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                if (newPlan.MealPlan.RecipeId == null)
+                {
+                    newPlan.MealPlan.RecipeId = new List<int>();
+                }
                 connection.Open();
-                int affectRows = connection.Execute(AddMealPlanString, newPlan);
+                Dictionary<string, object> dynamicParameterArgs = new Dictionary<string, object>();
+                dynamicParameterArgs.Add("@RecipeName", newPlan.Recipe.RecipeName);
+                int theRecipeId = connection.Query<int>(GetRecipeIDFromName, new DynamicParameters(dynamicParameterArgs)).ToList().FirstOrDefault();
+                newPlan.MealPlan.RecipeId.Add(theRecipeId);
+                Dictionary<string, object> dynamicParameterArgsMealPlan = new Dictionary<string, object>();
+                dynamicParameterArgsMealPlan.Add("@RecipeId", newPlan.MealPlan.RecipeId);
+                dynamicParameterArgsMealPlan.Add("@MealPlanName", newPlan.MealPlan.MealPlanName);
+                dynamicParameterArgsMealPlan.Add("@MealPlanImage", "https://image.flaticon.com/icons/svg/93/93104.svg");
+                foreach (int recipeId in newPlan.MealPlan.RecipeId)
+                {
+                    int affectRows = connection.Execute(AddMealPlanString, new DynamicParameters(dynamicParameterArgsMealPlan));
+                }
                 
 
             }
@@ -56,17 +72,6 @@ namespace WebApplication.Web.DAL
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

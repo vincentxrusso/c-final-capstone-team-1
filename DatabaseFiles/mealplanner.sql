@@ -8,7 +8,7 @@ CREATE TABLE ingredients
 	ingredientName varchar(max) NOT NULL,
 	ingredientImage varchar(max) NULL,
 
-	constraint pk_ingredientId primary key (ingredientId)
+	constraint pk_ingredientId1 primary key (ingredientId)
 );
 
 CREATE TABLE groceryLists
@@ -19,8 +19,8 @@ CREATE TABLE groceryLists
 	groceryListImage varchar(50) NULL,
 	quantity int NULL,
 
-	constraint pk_groceryListId primary key(groceryListId),
-	constraint fk_ingredientId2 foreign key(ingredientId) references ingredients (ingredientId)
+	constraint pk_groceryListId1 primary key(groceryListId),
+	constraint fk_ingredientId1 foreign key(ingredientId) references ingredients (ingredientId)
 );
 
 CREATE TABLE recipes
@@ -53,13 +53,11 @@ CREATE TABLE recipes
 CREATE TABLE mealPlans
 (
 	mealPlanId int IDENTITY(1,1) NOT NULL,
-	recipeId int NULL,
 	mealPlanName varchar(max) NOT NULL,
 	mealPlanImage varchar(max) NULL,
 	recipeCount int NULL,
 
-	constraint pk_mealPlanId primary key(mealPlanId), 
-	constraint fk_recipeId1 foreign key(recipeId) references recipes (recipeId)
+	constraint pk_mealPlanId1 primary key(mealPlanId)
 );
 
 CREATE TABLE users
@@ -73,10 +71,10 @@ CREATE TABLE users
 	salt varchar(50) NOT NULL,
 	role varchar(50) default('user'),
 
-	constraint pk_userId primary key (userId),
-	constraint fk_recipeId2 foreign key (recipeId) references recipes (recipeId),
-	constraint fk_mealPlanId foreign key (mealPlanId) references mealPlans (mealPlanId),
-	constraint fk_groceryListId foreign key (groceryListId) references groceryLists (groceryListId)
+	constraint pk_userId1 primary key (userId),
+	constraint fk_recipeId1 foreign key (recipeId) references recipes (recipeId),
+	constraint fk_mealPlanId1 foreign key (mealPlanId) references mealPlans (mealPlanId),
+	constraint fk_groceryListId1 foreign key (groceryListId) references groceryLists (groceryListId)
 );
 
 CREATE TABLE recipes_ingredients
@@ -84,8 +82,17 @@ CREATE TABLE recipes_ingredients
 	recipeId int NOT NULL,
 	ingredientId int NOT NULL,
 
-	constraint fk_recipeId3 foreign key (recipeId) references recipes (recipeId),
-	constraint fk_ingredientId3 foreign key (ingredientId) references ingredients (ingredientId)
+	constraint fk_recipeId2 foreign key (recipeId) references recipes (recipeId),
+	constraint fk_ingredientId2 foreign key (ingredientId) references ingredients (ingredientId)
+);
+
+CREATE TABLE mealPlans_recipes
+(
+	mealPlanId int NOT NULL,
+	recipeId int NOT NULL,
+
+	constraint fk_mealPlanId2 foreign key (mealPlanId) references mealPlans (mealPlanId),
+	constraint fk_recipeId3 foreign key (recipeId) references recipes (recipeId)
 );
 
 COMMIT TRANSACTION;

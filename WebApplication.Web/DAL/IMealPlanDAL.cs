@@ -9,6 +9,6 @@ namespace WebApplication.Web.DAL
     interface IMealPlanDAL
     {
         IList<MealPlans> GetMealPlans();
-        void AddMealPlan(MealPlans newPlan);
+        void AddMealPlan(AwesomeModel newPlan);
     }
 }
