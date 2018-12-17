@@ -20,6 +20,7 @@ namespace WebApplication.Web.DAL
 
         const string RecipeListTop5String = "Select * from recipes;";
         const string GetAllRecipesString = "SELECT * from recipes;";
+        const string GetRecipeString = "Select * from recipes where RecipeId = @recipeId";
         const string GetAllUserRecipesString = "Select * from recipes where user ;";     
 
         public void AddRecipe(Recipes newRecipe)
@@ -107,6 +108,22 @@ namespace WebApplication.Web.DAL
                     List<Recipes> result = connection.Query<Recipes>(GetAllRecipesString).ToList();
                     return result;
                 }
+            }
+        }
+
+        //this method is to get individual recipe for recipe details page where recipe id = ?
+        public Recipes GetRecipe(int recipeId)
+        {
+            Recipes oneRecipe = new Recipes();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                Dictionary<string, object> dynamicParameterArgs = new Dictionary<string, object>();
+                dynamicParameterArgs.Add("@recipeId", recipeId);
+
+                oneRecipe = connection.Query<Recipes>(GetRecipeString, new DynamicParameters(dynamicParameterArgs)).ToList().FirstOrDefault();
+                
+                return oneRecipe;
             }
         }
 

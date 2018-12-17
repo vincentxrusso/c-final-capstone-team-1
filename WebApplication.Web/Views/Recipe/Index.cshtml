@@ -25,12 +25,13 @@
                     @{ foreach (Recipes recipe in Model)
                         {
                             <div class="col-md-4">
-                                <a href="/Recipes/Detail">
+                                <a asp-controller="Recipe" asp-action="Detail" asp-route-RecipeId="@recipe.RecipeId">
+                                    <p class="inline-block" style="color: orange; font-size: x-large; font-style: oblique">@recipe.RecipeName - Details</p>
+
+                                </a>
+                                <a href="/Recipe/Detail?RecipeName=@recipe.RecipeName">
                                     <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
                                 </a>
-                                <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
-                                    <p>@recipe.RecipeName</p>
-                                </div>
                             </div>
                         }
                     }
