@@ -17,8 +17,9 @@ namespace WebApplication.Web.DAL
             this.connectionString = connectionString;
         }
 
-        const string AddMealPlanString = " INSERT INTO mealPlans (recipeId, mealPlanName, mealPlanImage) " +
-            "values (@RecipeId, @MealPlanName, @MealPlanImage);";
+        const string AddMealPlanString = " INSERT INTO mealPlans (mealPlanName, mealPlanImage) " +
+            "values (@MealPlanName, @MealPlanImage);"; // +
+            //"INSERT INTO mealPlans_recipes (mealPanId, recipeID) VALUES (@mealPlanID, recipeId)";
         const string GetAllMealPlans = "Select * from mealPlans";
         const string GetRecipeIDFromName = "SELECT recipeId from recipes where recipeName = @RecipeName;";
         
@@ -38,7 +39,10 @@ namespace WebApplication.Web.DAL
                 int theRecipeId = connection.Query<int>(GetRecipeIDFromName, new DynamicParameters(dynamicParameterArgs)).ToList().FirstOrDefault();
                 newPlan.MealPlan.RecipeId.Add(theRecipeId);
                 Dictionary<string, object> dynamicParameterArgsMealPlan = new Dictionary<string, object>();
-                dynamicParameterArgsMealPlan.Add("@RecipeId", newPlan.MealPlan.RecipeId);
+               // dynamicParameterArgsMealPlan.Add("@RecipeId", newPlan.MealPlan.RecipeId);
+
+                //dynamicParameterArgsMealPlan.Add("@mealPlanID", newPlan.MealPlan.MealPlanName);
+                //dynamicParameterArgsMealPlan.Add("@MealPlanName", newPlan.MealPlan.MealPlanName);
                 dynamicParameterArgsMealPlan.Add("@MealPlanName", newPlan.MealPlan.MealPlanName);
                 dynamicParameterArgsMealPlan.Add("@MealPlanImage", "https://image.flaticon.com/icons/svg/93/93104.svg");
                 foreach (int recipeId in newPlan.MealPlan.RecipeId)
