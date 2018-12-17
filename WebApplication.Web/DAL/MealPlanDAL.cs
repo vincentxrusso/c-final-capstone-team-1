@@ -21,20 +21,15 @@ namespace WebApplication.Web.DAL
             "@recipeId, @mealPlanName, @mealPlanImage)";
         const string GetAllMealPlans = "Select * from mealPlans";
         
-        const string GetAllUserRecipesString = " ";
-        
+        const string GetAllUserRecipesString = " ";        
 
         public void AddMealPlan(MealPlans newPlan)
         {
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                int affectRows = connection.Execute(AddMealPlanString, newPlan);
-                
-
+                int affectRows = connection.Execute(AddMealPlanString, newPlan);               
             }
-
         }
 
         public IList<MealPlans> GetMealPlans()
@@ -43,7 +38,6 @@ namespace WebApplication.Web.DAL
             IList<MealPlans> allRecipes = new List<MealPlans>();
 
             {
-
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -52,22 +46,6 @@ namespace WebApplication.Web.DAL
 
                 }
             }
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
