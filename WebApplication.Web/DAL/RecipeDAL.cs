@@ -105,7 +105,7 @@ namespace WebApplication.Web.DAL
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    List<Recipes> result = connection.Query<Recipes>(GetAllRecipesString).ToList();
+                    IList<Recipes> result = connection.Query<Recipes>(GetAllRecipesString).ToList();
                     return result;
                 }
             }
