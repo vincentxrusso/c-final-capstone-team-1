@@ -9,6 +9,7 @@ namespace WebApplication.Web.DAL
     interface IRecipeDAL
     {
         IList<Recipes> GetRecipes();
+        Recipes GetRecipe(int userId);
         IList<Recipes> RecipesTop5();
         IList<Recipes> GetRecipesForUser(int userId);
         void AddRecipe(Recipes newRecipe);

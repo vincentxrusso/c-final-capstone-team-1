@@ -19,10 +19,12 @@ namespace WebApplication.Web.Controllers
             return View(recipeDAL.GetRecipes());
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(int recipeId)
         {
+            Recipes recipe = recipeDAL.GetRecipe(recipeId);
+            return View(recipe);
             
-            return View(recipeDAL.GetRecipes());
+         
         }
 
         [HttpGet]
