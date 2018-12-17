@@ -20,7 +20,7 @@ namespace WebApplication.Web.DAL
        
 
 
-        const string AddRecipeString = " INSERT INTO recipes(recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
+        const string AddRecipeString = "INSERT INTO recipes(recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
             "values (@recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein, @fiber, @cholesterol, @sodium, @recipeImage);";
         const string RecipeListTop5String = "Select * from recipes;";
         const string GetAllRecipesString = "SELECT * from recipes;";

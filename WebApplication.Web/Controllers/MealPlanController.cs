@@ -22,12 +22,12 @@ namespace WebApplication.Web.Controllers
         }
 
         //[HttpGet]
-        //public IActionResult RecipesToAddToMealPlan()
+        //public IActionResult RecipeToAddToMealPlan()
         //{
         //    return View();
         //}
         //[HttpPost]
-        //public IActionResult RecipesToAddToMealPlan(AwesomeModel model)
+        //public IActionResult RecipeToAddToMealPlan(AwesomeModel model)
         //{
 
         //    return View(recipeDAL.DropDownRecipeGet());
