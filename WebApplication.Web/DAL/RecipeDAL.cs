@@ -16,27 +16,53 @@ namespace WebApplication.Web.DAL
         public RecipeDAL(string connectionString)
         {
             this.connectionString = connectionString;
-        }
-       
+        }   
 
-
-        const string AddRecipeString = "INSERT INTO recipes(recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
-            "values (@recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein, @fiber, @cholesterol, @sodium, @recipeImage);";
         const string RecipeListTop5String = "Select * from recipes;";
         const string GetAllRecipesString = "SELECT * from recipes;";
-        const string GetAllUserRecipesString = "Select * from recipes where user ;";
-     
+        const string GetAllUserRecipesString = "Select * from recipes where user ;";     
 
         public void AddRecipe(Recipes newRecipe)
-        {           
-            using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            try
             {
-                connection.Open();
-                int affectRows = connection.Execute(AddRecipeString, newRecipe);                
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string sql = $"INSERT INTO recipes(recipeDescription, recipeName, instructions, cookTime, prepTime, recipeType, glutenFree, vegetarianFriendly, dairyFree, nutFree, veganFriendly, servings, caloriesPerServing, fat, carbohydrates, protein, fiber, cholesterol, sodium, recipeImage) " +
+            "values (@recipeDescription, @recipeName, @instructions, @cookTime, @prepTime, @recipeType, @glutenFree, @vegetarianFriendly, @dairyFree, @nutFree, @veganFriendly, @servings, @caloriesPerServing, @fat, @carbohydrates, @protein, @fiber, @cholesterol, @sodium, @recipeImage);";
+
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("@recipeDescription", newRecipe.RecipeDescription);
+                    command.Parameters.AddWithValue("@recipeName", newRecipe.RecipeName);
+                    command.Parameters.AddWithValue("@instructions", newRecipe.Instructions);
+                    command.Parameters.AddWithValue("@cookTime", newRecipe.CookTime);
+                    command.Parameters.AddWithValue("@prepTime", newRecipe.PrepTime);
+                    command.Parameters.AddWithValue("@recipeType", newRecipe.RecipeType);
+                    command.Parameters.AddWithValue("@glutenFree", newRecipe.GlutenFree);
+                    command.Parameters.AddWithValue("@vegetarianFriendly", newRecipe.VegetarianFriendly);
+                    command.Parameters.AddWithValue("@dairyFree", newRecipe.DairyFree);
+                    command.Parameters.AddWithValue("@nutFree", newRecipe.NutFree);
+                    command.Parameters.AddWithValue("@veganFriendly", newRecipe.VeganFriendly);
+                    command.Parameters.AddWithValue("@servings", newRecipe.Servings);
+                    command.Parameters.AddWithValue("@caloriesPerServing", newRecipe.CaloriesPerServing);
+                    command.Parameters.AddWithValue("@fat", newRecipe.Fat);
+                    command.Parameters.AddWithValue("@carbohydrates", newRecipe.Carbohydrates);
+                    command.Parameters.AddWithValue("@protein", newRecipe.Protein);
+                    command.Parameters.AddWithValue("@fiber", newRecipe.Fiber);
+                    command.Parameters.AddWithValue("@cholesterol", newRecipe.Cholesterol);
+                    command.Parameters.AddWithValue("@sodium", newRecipe.Sodium);
+                    command.Parameters.AddWithValue("@recipeImage", newRecipe.RecipeImage);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch(SqlException exception)
+            {
+                throw;
             }
         }
-
-
         
         public AwesomeModel DropDownRecipeGet()
         {
@@ -58,8 +84,6 @@ namespace WebApplication.Web.DAL
             }
             return result;
         }
-
-
 
         //This method is to display top 5 recipes for the home index below the log in and register for aesthetics
         public IList<Recipes> RecipesTop5()
