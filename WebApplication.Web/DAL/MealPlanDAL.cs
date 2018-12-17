@@ -22,12 +22,10 @@ namespace WebApplication.Web.DAL
         const string GetAllMealPlans = "Select * from mealPlans";
         const string GetRecipeIDFromName = "SELECT recipeId from recipes where recipeName = @RecipeName;";
         
-        const string GetAllUserRecipesString = " ";
-        
+        const string GetAllUserRecipesString = " ";        
 
         public void AddMealPlan(AwesomeModel newPlan)
         {
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 if (newPlan.MealPlan.RecipeId == null)
@@ -50,7 +48,6 @@ namespace WebApplication.Web.DAL
                 
 
             }
-
         }
 
         public IList<MealPlans> GetMealPlans()
@@ -59,7 +56,6 @@ namespace WebApplication.Web.DAL
             IList<MealPlans> allRecipes = new List<MealPlans>();
 
             {
-
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -68,9 +64,6 @@ namespace WebApplication.Web.DAL
 
                 }
             }
-
-
-
         }
 
 
