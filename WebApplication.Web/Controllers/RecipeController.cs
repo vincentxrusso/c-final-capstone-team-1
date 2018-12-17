@@ -9,7 +9,7 @@ using WebApplication.Web.DAL;
 
 namespace WebApplication.Web.Controllers
 {
-    public class RecipesController : Controller
+    public class RecipeController : Controller
     {
         IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
         
