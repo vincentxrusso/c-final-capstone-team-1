@@ -10,41 +10,40 @@
     div.background {
         height: 100%;
         width: 100%;
-        background-image: url("https://cdn.hipwallpaper.com/i/35/78/jhYV6A.jpg");
+        background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("https://cdn.hipwallpaper.com/i/35/78/jhYV6A.jpg");
         background-size: 100%;
         background-attachment: fixed;
-        opacity: 0.8;
     }
 
-    #topRecipes {
+    /*.topRecipes {
         opacity: 1;
-    }
+    }*/
 
 </style>
 
 <body>
     <div class="background">
         
-        <div id="topRecipes">
-            <h2 align="center" style="color: ActiveBorder; font-size: xx-large">@Model.RecipeName Recipe Details</h2>
+        <div>
+            <h2 class="topRecipes" align="center" style="color:black; font-size: xx-large">@Model.RecipeName Recipe Details</h2>
             <br />
             <br />
             <br />
             <div class="container-fluid">
                 <div class="row">
-                    <p style="color:ActiveBorder">Cook Time: @Model.CookTime Min Prep Time: @Model.PrepTime Min</p>
-                    <img class="detailRecipeImage" src="@Model.RecipeImage" alt="Recipe Image">
+                    <p style="color:black; font-weight: bold; opacity: 0.8">Cook Time: @Model.CookTime Min Prep Time: @Model.PrepTime Min</p>
+                    <img class="detailRecipeImage" style="opacity: 0.8" src="@Model.RecipeImage" alt="Recipe Image">
 
 
                     <div>
                         @{ <table class="table table-striped table-dark">
                                 <thead>
                                     <tr>
-                                        <th scope="col" style="color:ActiveBorder">GlutenFree</th>
-                                        <th scope="col" style="color:ActiveBorder">Vegetarian Friendly</th>
-                                        <th scope="col" style="color:ActiveBorder">Vegan Friendly</th>
-                                        <th scope="col" style="color:ActiveBorder">Dairy Free</th>
-                                        <th scope="col" style="color:ActiveBorder">Nut Free</th>
+                                        <th scope="col" style="color:black">GlutenFree</th>
+                                        <th scope="col" style="color:black">Vegetarian Friendly</th>
+                                        <th scope="col" style="color:black">Vegan Friendly</th>
+                                        <th scope="col" style="color:black">Dairy Free</th>
+                                        <th scope="col" style="color:black">Nut Free</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,7 +63,7 @@
                     </div>
 
                 </div>
-                <p style="color: goldenrod; font-size: larger"> @Model.Instructions</p>
+                <p style="color:black; font-weight: bold; opacity: 0.8; font-size: larger"> @Model.Instructions</p>
             </div>
             <div>
                 <p id="buttonOnAllRecipesPage">
