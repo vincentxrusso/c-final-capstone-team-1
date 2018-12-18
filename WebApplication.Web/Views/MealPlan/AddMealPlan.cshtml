@@ -3,33 +3,60 @@
     ViewData["Title"] = "AddMealPlan";
 }
 
-<h2>AddMealPlan</h2>
+
+<style>
+    body {
+        height: 100%;
+        width: 100%;
+        background-image: url("http://pixymotion.pictures/Cat/Food/Delicious%20Food%20Wallpapers/Delicious%20Food%20Wallpapers%202%20(2).jpg");
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+    <h2 style="color:white">AddMealPlan</h2>
 
 
-<form asp-controller="MealPlan" asp-action="AddMealPlan" method="post">
+    <form asp-controller="MealPlan" asp-action="AddMealPlan" method="post">
 
-    <div>
-        <label asp-for="MealPlan.MealPlanName">Meal Plan Name</label>
-        <input class="Spacing2" asp-for="MealPlan.MealPlanName" asp-items="Model.MealPlanName" />
-    </div>
-
-    @*<div>S
-            <label asp-for="state">State of Residence</label>
-            <select class="Spacing3" asp-for="state" asp-items="SurveyModel.StatesAbb"></select>
-        </div>
         <div>
-            <label asp-for="activityLevel">Activity Level</label>
-            <select class="Spacing4" asp-for="activityLevel" asp-items="SurveyModel.Active"></select>
-        </div>*@
-    <div>
-        <div>
-            <label asp-for="Recipe.RecipeName">Recipe to Add</label>
-            <select asp-for="Recipe.RecipeName" asp-items="Model.Recipe.RecipeDropDown"></select>
+            <label asp-for="MealPlan.MealPlanName" style="color:white">Meal Plan Name: </label>
+            <input class="Spacing2" asp-for="MealPlan.MealPlanName" asp-items="Model.MealPlanName" />
         </div>
-    </div>
-    <div id="button">
-        <input type="submit" value="Submit" />
-    </div>
-</form>
-
+        <br>
+        @*<div>S
+                <label asp-for="state">State of Residence</label>
+                <select class="Spacing3" asp-for="state" asp-items="SurveyModel.StatesAbb"></select>
+            </div>
+            <div>
+                <label asp-for="activityLevel">Activity Level</label>
+                <select class="Spacing4" asp-for="activityLevel" asp-items="SurveyModel.Active"></select>
+            </div>*@
+        <div>
+            <div>
+                <label asp-for="Recipe.RecipeName" style="color:white">Recipe to Add: </label>
+                <select asp-for="Recipe.RecipeName" asp-items="Model.Recipe.RecipeDropDown"></select>
+            </div>
+        </div>
+        <div id="button">
+            <input type="submit" class="btn btn-success"value="Submit" />
+            
+        </div>
+        
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br /><br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
 

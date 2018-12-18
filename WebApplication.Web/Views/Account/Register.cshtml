@@ -4,24 +4,47 @@
 @{
     ViewData["Title"] = "Register";
 }
+<style>
+    body {
+        height: 100%;
+        width: 100%;
+        background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-HD-Pictures-Food-PIC-WPD006582.jpg");
+        background-size: 100%;
+        background-attachment: fixed;
+       
+    }
+</style>
+<body>
+    <h2 style="color:white">Register</h2>
 
-<h2>Register</h2>
-
-<form asp-controller="account" asp-action="register" method="post">
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" placeholder="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <input type="password" asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ConfirmPassword"></label>
-        <input type="password" asp-for="ConfirmPassword" />
-        <span asp-validation-for="ConfirmPassword"></span>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+    <form asp-controller="account" asp-action="register" method="post">
+        <div class="form-group" style="color:white">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" placeholder="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group" style="color:white">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group" style="color:white">
+            <label asp-for="ConfirmPassword"></label>
+            <input type="password" asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</body>

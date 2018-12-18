@@ -1,60 +1,168 @@
-﻿@model IList<Recipes>
+﻿
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "detail";
 }
-
-
-
-@*@if (Session[SessionKeys.Username] == null)
-    {
-        <h2>Welcome!</h2>
-    }
-    else
-    {
-        <h2>Welcome @((string)Session[SessionKeys.Username])!</h2>
-    }*@
 <style>
+    .shadow {
+        text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    }
+
     body {
         height: 100%;
         width: 100%;
-        background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-HD-Pictures-Food-PIC-WPD006582.jpg");
+        background-image: url("https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Simple-Background-Images-10.png");
         background-size: 100%;
         background-attachment: fixed;
-        $enable-shadows: true;
     }
 </style>
-
 <body>
-    <div class="topRecipes">
-        <h2 class = "shadow-lg" align="center" style="color: orange; font-size: xx-large"> Welcome to the Capstone Meal Planner</h2>
-        <br />
-        <br />
-        <br />
-        <div class="container-fluid">
-            <div class="row">
-                <div>
-                    @{ foreach (Recipes recipe in Model)
-                        {
-                            <div class="col-md-4">
-                                <a href="/Recipe/Detail">
-                                    <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
-                                </a>
-                                <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
-                                    <p>@recipe.RecipeName</p>
-                                    <p>@recipe.CookTime minutes of cook time.</p>
-                                </div>
-                            </div>
-                        }
-                    }
+    <h1 class="shadow" style="color: crimson; font-family: 'EmojiOne Color'; font-weight: bold;  font-size: 40px; text-align: center; opacity: 0.65"> Capstone Meal Planner</h1>
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img class="img-responsive" style="width:100%; height: 340px; opacity: 0.4;" src="~/images/home1.jpg" alt="ASP.NET" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        <span style="font-weight:bold">Learn about the recipes in our Database!</span>
+                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                            View Our Recipes
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/picforhome.PNG" style="width:100%; height: 340px; opacity: 0.4;" alt="Visual Studio" class=" carouselImage img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        <span style="font-weight:bold">
+                            Build your own customized Meal Plan!</span>
+                            <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                                Learn More!
+                            </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/groceries.jpg" style="width: 100%; height: 340px; opacity: 0.4" alt="Microsoft Azure" class="img-responsive carouseli" />
+                <div class="carousel-caption" role="option">
+                    <p style="color:whitesmoke">
+                        <span style="font-weight:bold">
+                            View your grocery list at any time.</span>
+                            <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                                Sign Up!
+                            </a>
+                    </p>
                 </div>
             </div>
         </div>
-        <div>
-            <p id="buttonOnHomePage">
-                <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 10%">My Meal Plan</a>
-                <a href="/Recipe/Index" class="btn btn-primary" style="margin-left: 27%">All Recipes</a>
-                <a href="/Account/Register" class="btn btn-warning" style="margin-left: 29%">Not Registered? Sign Up!</a>
-            </p>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2 class="shadow" style="font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; opacity: 0.9; font-weight:bold;">Build Your Meal Plan</h2>
+            <ul style="color:seagreen; font-weight: bold; opacity: 0.8;">
+                <li>Add and edit recipes to your MealPlan, modify them anytime.</li>
+                <li>Store ingredients in your grocery list to assess which recipes are best to make.</li>
+                <li>Adjust your mealplan to meet dietary restrictions</li>
+
+
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color:ghostwhite;font-size: 20px; opacity: 0.9; font-weight: bold;  ">Varieties of Recipes</h2>
+            <ul style="color:seagreen; font-weight: bold; opacity: 0.8;">
+                <li>Extensive Database with a diversity of recipes</li>
+                <li>Add or remove ingredients at your leasure</li>
+                <li> Additional simplistic view for printing</li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; opacity: 0.9; font-weight: bold; ">Manage Your Ingredients</h2>
+            <ul style="color:seagreen; font-weight: bold; opacity: 0.8;">
+                <li>Build your own grocery list</li>
+                <li>Store your groceries list within your profile to organize what you need for future meals</li>
+                <li>Choose recipes based on ingredients you have</li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; opacity: 0.9; font-weight:bold;">This Project </h2>
+            <ul style="color:seagreen; font-weight: bold; opacity: 0.8;">
+                <li>Built in Microsoft Visual Studio using .NET Framework</li>
+                <li>Organized with MVC Pattern and ASP.NET</li>
+                <li><a href="https://www.techelevator.com/pittsburgh/" style="color: seagreen">.NET Cohort[1] December 2018</a></li>
+            </ul>
         </div>
     </div>
+
 </body>
+
+@*@model IList<Recipes>
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+
+
+
+
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-HD-Pictures-Food-PIC-WPD006582.jpg");
+            background-size: 100%;
+            background-attachment: fixed;
+            $enable-shadows: true;
+        }
+    </style>
+
+    <body>
+        <div class="topRecipes">
+            <h2 class = "shadow-lg" align="center" style="color: orange; font-size: xx-large"> Welcome to the Capstone Meal Planner</h2>
+            <br />
+            <br />
+            <br />
+            <div class="container-fluid">
+                <div class="row">
+                    <div>
+                        @{ foreach (Recipes recipe in Model)
+                            {
+                                <div class="col-md-4">
+                                    <a href="/Recipe/Detail">
+                                        <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
+                                    </a>
+                                    <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
+                                        <p>@recipe.RecipeName</p>
+                                        <p>@recipe.CookTime minutes of cook time.</p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p id="buttonOnHomePage">
+                    <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 10%">My Meal Plan</a>
+                    <a href="/Recipe/Index" class="btn btn-primary" style="margin-left: 27%">All Recipes</a>
+                    <a href="/Account/Register" class="btn btn-warning" style="margin-left: 29%">Not Registered? Sign Up!</a>
+                </p>
+            </div>
+        </div>
+    </body>*@
