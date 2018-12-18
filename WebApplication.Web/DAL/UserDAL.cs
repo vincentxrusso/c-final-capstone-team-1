@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
+using System.Data.SqlClient;
 using WebApplication.Web.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication.Web.DAL
 {

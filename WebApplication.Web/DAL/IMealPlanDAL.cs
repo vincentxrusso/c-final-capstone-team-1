@@ -6,7 +6,7 @@ using WebApplication.Web.Models;
 
 namespace WebApplication.Web.DAL
 {
-    interface IMealPlanDAL
+    public interface IMealPlanDAL
     {
         IList<MealPlans> GetMealPlans();
         AwesomeModel AddMealPlan(AwesomeModel newPlan);
