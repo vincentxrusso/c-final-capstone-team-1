@@ -42,10 +42,18 @@ namespace WebApplication.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddMealPlan(AwesomeModel model)
+        public IActionResult Submit(AwesomeModel model)
         {
-            mealPlanDAL.AddMealPlan(model);
-            return RedirectToAction("index");
+         
+            model = mealPlanDAL.AddMealPlan(model);
+            model = mealPlanDAL.GetMealPlanByID(model);
+            return View( "MealPlanDetail", model);
+        }
+        [HttpGet]
+        public IActionResult MealPlanDetail(AwesomeModel model)
+        {
+          
+            return View(model);
         }
     }
 }

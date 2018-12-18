@@ -82,10 +82,10 @@ namespace WebApplication.Web.DAL
         }
         public AwesomeModel GetMealPlanByID(AwesomeModel userModel)
         {
-            
+            userModel.MealPlan.RecipesList = new List<Recipes>();
 
             const string GetMealPlanByID = "Select * from mealPlans where mealPlanId = @MealPlanId;";
-            const string GetMealPlanByIDWithRecipeIDs = "Select recipeId from mealPlans_recipes where mealPlanId = @MealPlanId;";
+            const string GetMealPlanByIDWithRecipeIDs = "Select * from mealPlans_recipes where mealPlanId = @MealPlanId;";
             const string CreateRecipesFromMealPlan = "Select * from recipes where recipeId = @recipeId;";
             Dictionary<string, object> dynamicParameterArgsMealPlan = new Dictionary<string, object>();
             dynamicParameterArgsMealPlan.Add("@MealPlanId", userModel.MealPlan.MealPlanId);
@@ -95,11 +95,9 @@ namespace WebApplication.Web.DAL
                 connection.Open();
                 MealPlans results = connection.Query<MealPlans>(GetMealPlanByID, new DynamicParameters(dynamicParameterArgsMealPlan)).ToList().FirstOrDefault();
                 userModel.MealPlan = results;
-             
-
+               
                 List<int> resultsRecipes = connection.Query<int>(GetMealPlanByIDWithRecipeIDs, new DynamicParameters(dynamicParameterArgsMealPlan)).ToList();
                 userModel.MealPlan.RecipeId = resultsRecipes;
-                userModel.MealPlan.RecipesList = new List<Recipes>();
                 foreach (int recipeId in resultsRecipes)
                 {
                     dynamicParameterArgsMealPlan.Add("@recipeid", recipeId);
