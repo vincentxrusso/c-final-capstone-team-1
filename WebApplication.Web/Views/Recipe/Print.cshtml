@@ -1,0 +1,19 @@
+﻿@model Recipes
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>@Model.RecipeName </h2>
+<p>
+       @Model.RecipeName
+</p>
+<p>@Model.RecipeDescription</p>
+<br />
+
+<p>@Model.CookTime Mins of cooktime</p>
+<p>@Model.PrepTime mins of preptime</p>
+<p>@Model.CaloriesPerServing Calories per serving, @Model.Servings servings</p>
+<br />
+<p>@Model.Instructions</p>
