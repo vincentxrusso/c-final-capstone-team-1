@@ -6,7 +6,7 @@ using WebApplication.Web.Models;
 
 namespace WebApplication.Web.DAL
 {
-    interface IRecipeDAL
+    public interface IRecipeDAL
     {
         IList<Recipes> GetRecipes();
         Recipes GetRecipe(int userId);

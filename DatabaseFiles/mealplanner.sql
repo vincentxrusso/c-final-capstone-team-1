@@ -16,7 +16,7 @@ CREATE TABLE groceryLists
 	groceryListId int IDENTITY(1,1) NOT NULL,
 	ingredientId int NULL,
 	item varchar(50) NULL,
-	groceryListImage varchar(50) NULL,
+	groceryListImage varchar(max) NULL,
 	quantity int NULL,
 
 	constraint pk_groceryListId1 primary key(groceryListId),
