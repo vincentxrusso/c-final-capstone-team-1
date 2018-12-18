@@ -6,9 +6,11 @@ using WebApplication.Web.Models;
 
 namespace WebApplication.Web.DAL
 {
-    public interface IMealPlanDAL
+    public interface IGroceryListDAL
     {
-        IList<MealPlans> GetMealPlans();
-        void AddMealPlan(AwesomeModel newPlan);
+
+
+
+
     }
 }
