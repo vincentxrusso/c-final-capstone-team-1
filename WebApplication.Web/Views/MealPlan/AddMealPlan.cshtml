@@ -15,6 +15,7 @@
 </style>
 <body>
     <h2 style="color:white">AddMealPlan</h2>
+    <br />
 
     @*<form asp-controller="MealPlan" asp-action="AddMealPlan"  asp-route-model="@Model" method="post">*@
     <form asp-controller="MealPlan" asp-action="Submit" method="post">
@@ -35,9 +36,10 @@
                 <select class="Spacing4" asp-for="activityLevel" asp-items="SurveyModel.Active"></select>
             </div>*@
         <div>
-            <label asp-for="Recipe.RecipeName">Recipe to Add</label>
+            <label asp-for="Recipe.RecipeName" style="color:white">Recipe to Add</label>
             <select asp-for="@Model.Recipe.RecipeName" asp-items="Model.Recipe.RecipeDropDown"></select>
         </div>
+        <br />
         <div id="button">
             <input type="submit" class="btn btn-success" value="Submit" />
 
@@ -49,7 +51,7 @@
     <br />
     <br />
     <br />
-    <br /><br />
+    <br />
     <br />
     <br />
     <br />

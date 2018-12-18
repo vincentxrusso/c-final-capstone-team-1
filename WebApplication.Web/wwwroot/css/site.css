@@ -35,10 +35,9 @@ body {
     }
 }
 
-.recipeImage {
-    
-    width: 50%;
-    height: 50%;
+.recipeImage {    
+    width: 30%;
+    height: 30%;
 }
 
 #buttonOnHomePage {
@@ -50,5 +49,6 @@ body {
     height: 50%;
 }
 .detailRecipeImage{
-    width : 20%;
+    width: 20%;
+    height: 20%;
 }

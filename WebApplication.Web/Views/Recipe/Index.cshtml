@@ -7,7 +7,7 @@
     body {
         height: 100%;
         width: 100%;
-        background-image: url("https://wallpapershome.com/images/pages/pic_h/403.jpg");
+        background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("https://wallpapershome.com/images/pages/pic_h/403.jpg");
         background-size: 100%;
         background-attachment: fixed;
     }
@@ -15,7 +15,7 @@
 
 <body>
     <div class="topRecipes">
-        <h2 align="center" style="color: orange; font-size: xx-large">All Recipes</h2>
+        <h2 align="center" style="color: black; font-size: xx-large">All Recipes</h2>
         <br />
         <br />
         <br />
@@ -24,14 +24,14 @@
                 <div>
                     @{ foreach (Recipes recipe in Model)
                         {
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 @*<a asp-controller="Recipe" asp-action="Detail" asp-route-RecipeId="@recipe.RecipeId">
-                                    <p class="inline-block" style="color: orange; font-size: x-large; font-style: oblique">@recipe.RecipeName - Details</p>
+                                    <p class="inline-block" style="color: black; font-size: x-large; font-style: oblique">@recipe.RecipeName - Details</p>
 
                                 </a>*@
-                                <p style="color:white; font-size: 28px;"> @recipe.RecipeName</p>
+                                <p style="color:black; opacity: 0.9; font-size: 28px;"> @recipe.RecipeName</p>
                                 <a href="/Recipe/Detail?RecipeId=@recipe.RecipeId">
-                                    <img class="recipeImage" src="@recipe.RecipeImage" alt="Recipe Image">
+                                    <img class="recipeImage" style="opacity: 0.9" src="@recipe.RecipeImage" alt="Recipe Image">
                                 </a>
                             </div>
                         }
@@ -39,6 +39,9 @@
                 </div>
             </div>
         </div>
+        <br />
+        <br />
+        <br />
         <div>
             <p id="buttonOnAllRecipesPage">
                 <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 10%">My Meal Plan</a>

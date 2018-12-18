@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 align="center" style="color: orange; font-size: xx-large">New Grocery List</h2>
+<h2 align="center" style="color: black; font-size: xx-large">New Grocery List</h2>
+<br />
 
 <form asp-controller="GroceryList" asp-action="AddGroceryList" method="post">
     <div class="labels">
@@ -25,6 +26,7 @@
     <div class="fields">
         <input type="text" asp-for="Quantity" />
     </div>
+    <br />
     <div class="labels">
         <input type="submit" value="Add Grocery List" />
     </div>

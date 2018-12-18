@@ -14,7 +14,8 @@
     }
 </style>
 
-<h2 align="center" style="color: orange; font-size: xx-large">New Recipe</h2>
+<h2 align="center" style="color: black; font-size: xx-large">New Recipe</h2>
+<br />
 
 <form asp-controller="Recipe" asp-action="AddRecipe" method="post">
     <div class="labels">
@@ -137,6 +138,7 @@
     <div class="fields">
         <input type="text" asp-for="RecipeImage" />
     </div>
+    <br />
     <div class="labels">
         <input type="submit" value="Add Recipe" />
     </div>
