@@ -8,8 +8,8 @@ namespace WebApplication.Web.DAL
 {
     public interface IGroceryListDAL
     {
-
-
+        IList<GroceryLists> GetGroceryLists();
+        void AddGroceryList(GroceryLists newGroceryList);
 
 
     }

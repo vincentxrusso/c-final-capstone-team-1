@@ -15,7 +15,22 @@ namespace WebApplication.Web.Controllers
 
         public IActionResult Index()
         {
+            return View(groceryListDAL.GetGroceryLists());
+        }
+
+        [HttpGet]
+        public IActionResult AddGroceryList()
+        {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddGroceryList(GroceryLists groceryList)
+        {
+            groceryListDAL.AddGroceryList(groceryList);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

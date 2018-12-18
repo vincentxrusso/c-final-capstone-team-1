@@ -14,8 +14,7 @@ namespace WebApplication.Web.Controllers
         IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
         
         public IActionResult Index()
-        {
-            
+        {            
             return View(recipeDAL.GetRecipes());
         }
 
@@ -23,8 +22,6 @@ namespace WebApplication.Web.Controllers
         {
             Recipes recipe = recipeDAL.GetRecipe(recipeId);
             return View(recipe);
-            
-         
         }
 
         [HttpGet]
