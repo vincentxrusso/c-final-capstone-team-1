@@ -24,6 +24,12 @@ namespace WebApplication.Web.Controllers
             return View(recipe);
         }
 
+        public IActionResult Print(int recipeId)
+        {
+            Recipes recipe = recipeDAL.GetRecipe(recipeId);
+            return View(recipe);
+        }
+
         [HttpGet]
         public IActionResult AddRecipe()
         {
