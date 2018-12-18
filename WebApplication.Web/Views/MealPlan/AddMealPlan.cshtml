@@ -16,10 +16,10 @@
 <body>
     <h2 style="color:white">AddMealPlan</h2>
 
-@*<form asp-controller="MealPlan" asp-action="AddMealPlan"  asp-route-model="@Model" method="post">*@
-<form asp-controller="MealPlan" asp-action="Submit"  method="post">
+    @*<form asp-controller="MealPlan" asp-action="AddMealPlan"  asp-route-model="@Model" method="post">*@
+    <form asp-controller="MealPlan" asp-action="Submit" method="post">
 
-    <form asp-controller="MealPlan" asp-action="AddMealPlan" method="post">
+        @*<form asp-controller="MealPlan" asp-action="AddMealPlan" method="post">*@
 
         <div>
             <label asp-for="MealPlan.MealPlanName" style="color:white">Meal Plan Name: </label>
@@ -36,13 +36,13 @@
             </div>*@
         <div>
             <label asp-for="Recipe.RecipeName">Recipe to Add</label>
-            <select asp-for="@Model.Recipe.RecipeName" asp-items="Model.Recipe.RecipeDropDown" ></select>
+            <select asp-for="@Model.Recipe.RecipeName" asp-items="Model.Recipe.RecipeDropDown"></select>
         </div>
         <div id="button">
-            <input type="submit" class="btn btn-success"value="Submit" />
-            
+            <input type="submit" class="btn btn-success" value="Submit" />
+
         </div>
-        
+
     </form>
     <br />
     <br />
