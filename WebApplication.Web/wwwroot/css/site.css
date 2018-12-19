@@ -36,19 +36,17 @@ body {
 }
 
 .recipeImage {    
-    width: 30%;
-    height: 30%;
-}
-
-#buttonOnHomePage {
-    
+    width: 30%;    
 }
 
 .mealPlanImage {
-    width: 50%;
-    height: 50%;
+    width: 50%;    
 }
-.detailRecipeImage{
-    width: 20%;
-    height: 20%;
+
+.detailRecipeImage {
+    width: 100%;    
+}
+
+.ingredientImage {
+    width: 50px;    
 }

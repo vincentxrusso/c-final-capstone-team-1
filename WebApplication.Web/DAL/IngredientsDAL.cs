@@ -46,5 +46,10 @@ namespace WebApplication.Web.DAL
                 }
             }
         }
+
+        public void AddIngredient(Ingredients newIngredient)
+        {
+
+        }
     }
 }

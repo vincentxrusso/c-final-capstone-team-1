@@ -10,7 +10,7 @@ namespace WebApplication.Web.DAL
     {
         IList<Ingredients> GetIngredients();
         IList<Ingredients> GetIngredientsForRecipe(int RecipeId);
-
+        void AddIngredient(Ingredients newIngredient);
 
     }
 }
