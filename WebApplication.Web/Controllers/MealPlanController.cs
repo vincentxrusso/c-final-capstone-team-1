@@ -6,19 +6,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Web.Models;
 using WebApplication.Web.DAL;
+using WebApplication.Web.Providers.Auth;
+using System.Security.Claims;
 
 namespace WebApplication.Web.Controllers
 {
+    [AuthorizationFilter]
     public class MealPlanController : Controller
     {
 
+        private readonly IAuthProvider authProvider;
+        public MealPlanController(IAuthProvider authProvider)
+        {
+            this.authProvider = authProvider;
+        }
         IMealPlanDAL mealPlanDAL = new MealPlanDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
         IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
 
         public IActionResult Index()
         {
-           
-            return View(mealPlanDAL.GetMealPlans());
+            var user = authProvider.GetCurrentUser();
+            return View(mealPlanDAL.GetMealPlans(user.UserId));
         }
 
         //[HttpGet]
@@ -45,6 +53,7 @@ namespace WebApplication.Web.Controllers
         public IActionResult Submit(AwesomeModel model)
         {
          
+            model.User = authProvider.GetCurrentUser();
             model = mealPlanDAL.AddMealPlan(model);
             model = mealPlanDAL.GetMealPlanByID(model);
             return View( "MealPlanDetail", model);

@@ -8,7 +8,7 @@ namespace WebApplication.Web.DAL
 {
     public interface IMealPlanDAL
     {
-        IList<MealPlans> GetMealPlans();
+        IList<MealPlans> GetMealPlans(int userID);
         AwesomeModel AddMealPlan(AwesomeModel newPlan);
         AwesomeModel GetMealPlanByID(AwesomeModel userModel);
     }

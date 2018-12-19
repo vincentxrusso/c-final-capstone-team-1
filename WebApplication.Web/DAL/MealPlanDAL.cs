@@ -6,6 +6,7 @@ using Dapper;
 using System.Data.SqlClient;
 using WebApplication.Web.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using WebApplication.Web.Providers.Auth;
 
 namespace WebApplication.Web.DAL
 {
@@ -18,13 +19,13 @@ namespace WebApplication.Web.DAL
             this.connectionString = connectionString;
         }
 
-        const string AddMealPlanString = " INSERT INTO mealPlans (mealPlanName, mealPlanImage) " +
-            "values (@MealPlanName, @MealPlanImage);" +
+        const string AddMealPlanString = " INSERT INTO mealPlans (mealPlanName, mealPlanImage,userID) " +
+            "values (@MealPlanName, @MealPlanImage, @userID);" +
             "select cast(SCOPE_Identity() as int);";
 
 
 
-        const string GetAllMealPlans = "Select * from mealPlans";
+        const string GetAllMealPlans = "Select * from mealPlans where userID=@userID";
         const string GetRecipeIDFromName = "SELECT recipeId from recipes where recipeName = @RecipeName;";
         const string AddToMealPlanRecipes = "INSERT INTO mealPlans_recipes (mealPlanId, recipeId) values (@mealPlanId, @recipeId);";
         const string GetAllUserRecipesString = " ";
@@ -49,6 +50,7 @@ namespace WebApplication.Web.DAL
 
                 dynamicParameterArgsMealPlan.Add("@MealPlanName", newPlan.MealPlan.MealPlanName);
                 dynamicParameterArgsMealPlan.Add("@MealPlanImage", "https://image.flaticon.com/icons/svg/93/93104.svg");
+                dynamicParameterArgsMealPlan.Add("@userID", newPlan.User.UserId);
 
                 newPlan.MealPlan.MealPlanId = connection.Query<int>(AddMealPlanString, new DynamicParameters(dynamicParameterArgsMealPlan)).ToList().FirstOrDefault();
                 foreach (int recipeId in newPlan.MealPlan.RecipeId)
@@ -66,7 +68,7 @@ namespace WebApplication.Web.DAL
             return newPlan;
         }
 
-        public IList<MealPlans> GetMealPlans()
+        public IList<MealPlans> GetMealPlans(int userID)
         {
 
             IList<MealPlans> allRecipes = new List<MealPlans>();
@@ -75,7 +77,7 @@ namespace WebApplication.Web.DAL
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    IList<MealPlans> results = connection.Query<MealPlans>(GetAllMealPlans).ToList();
+                    IList<MealPlans> results = connection.Query<MealPlans>(GetAllMealPlans,new { userID }).ToList();
                     return results;
 
                 }
