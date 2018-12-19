@@ -1,11 +1,11 @@
 ﻿@model IList<GroceryLists>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "GroceryListDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <body>
-    <h2 align="center" style="color: black; font-size: xx-large">Grocery List</h2>
+    <h2 align="center" style="color: black; font-size: xx-large">Grocery List Detail</h2>
     <br />
     <br />
     <div class="container-fluid">
@@ -13,16 +13,15 @@
             <div>
                 @{ foreach (GroceryLists groceryLists in Model)
                     {
-                <div class="col-md-4">
-                    <a href="/GroceryList/GroceryListDetail?GroceryListId=@groceryLists">
-                        <img class="groceryListImage" src="@groceryLists.GroceryListImage" alt="Grocery List Image">
-                    </a>                 
+                        <div class="col-md-4">
 
-                    <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
-                        <p>@groceryLists.Item</p>
-                        <p>@groceryLists.Quantity</p>
-                    </div>
-                </div>
+                            <img class="recipeImage" src="@groceryLists.GroceryListImage" alt="Recipe Image">
+
+                            <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
+                                <p>@groceryLists.Item</p>
+                                <p>@groceryLists.Quantity</p>
+                            </div>
+                        </div>
                     }
                 }
             </div>
