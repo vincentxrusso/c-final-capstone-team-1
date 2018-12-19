@@ -16,8 +16,7 @@ namespace WebApplication.Web.Controllers
         IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
 
         public IActionResult Index()
-        {
-           
+        {           
             return View(mealPlanDAL.GetMealPlans());
         }
 
@@ -34,25 +33,21 @@ namespace WebApplication.Web.Controllers
         //}
         [HttpGet]
         public IActionResult AddMealPlan()
-        {
-        
+        {        
             return View(recipeDAL.DropDownRecipeGet());
-
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Submit(AwesomeModel model)
-        {
-         
+        {         
             model = mealPlanDAL.AddMealPlan(model);
             model = mealPlanDAL.GetMealPlanByID(model);
             return View( "MealPlanDetail", model);
         }
         [HttpGet]
         public IActionResult MealPlanDetail(AwesomeModel model)
-        {
-          
+        {          
             return View(model);
         }
     }

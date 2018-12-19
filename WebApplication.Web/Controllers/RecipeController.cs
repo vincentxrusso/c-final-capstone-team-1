@@ -12,7 +12,8 @@ namespace WebApplication.Web.Controllers
     public class RecipeController : Controller
     {
         IRecipeDAL recipeDAL = new RecipeDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
-        
+        IIngredientsDAL ingredientsDAL = new IngredientsDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True");
+
         public IActionResult Index()
         {            
             return View(recipeDAL.GetRecipes());
@@ -20,8 +21,11 @@ namespace WebApplication.Web.Controllers
 
         public IActionResult Detail(int recipeId)
         {
-            Recipes recipe = recipeDAL.GetRecipe(recipeId);
-            return View(recipe);
+            AwesomeModel returnModel = new AwesomeModel();
+            returnModel.Recipe = recipeDAL.GetRecipe(recipeId);
+            returnModel.Ingredients = ingredientsDAL.GetIngredientsForRecipe(recipeId);
+            
+            return View(returnModel);
         }
 
         public IActionResult Print(int recipeId)

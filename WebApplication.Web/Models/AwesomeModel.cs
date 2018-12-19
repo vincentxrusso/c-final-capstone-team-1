@@ -13,5 +13,6 @@ namespace WebApplication.Web.Models
         public MealPlans MealPlan { get; set; }
         public Ingredients Ingredient { get; set; }
         public GroceryLists GroceryList { get; set; }
+        public IList<Ingredients> Ingredients { get; set; }
     }
 }
