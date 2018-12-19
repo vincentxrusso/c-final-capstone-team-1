@@ -50,21 +50,10 @@ CREATE TABLE recipes
 	constraint pk_recipeId primary key(recipeId)
 );
 
-CREATE TABLE mealPlans
-(
-	mealPlanId int IDENTITY(1,1) NOT NULL,
-	mealPlanName varchar(max) NOT NULL,
-	mealPlanImage varchar(max) NULL,
-	recipeCount int NULL,
-
-	constraint pk_mealPlanId1 primary key(mealPlanId)
-);
-
 CREATE TABLE users
 (
 	userId int IDENTITY(1,1) NOT NULL,
 	recipeId int NULL,
-	mealPlanId int NULL,
 	groceryListId int NULL,
 	username varchar(50) NOT NULL,
 	password varchar(50) NOT NULL,
@@ -73,9 +62,23 @@ CREATE TABLE users
 
 	constraint pk_userId1 primary key (userId),
 	constraint fk_recipeId1 foreign key (recipeId) references recipes (recipeId),
-	constraint fk_mealPlanId1 foreign key (mealPlanId) references mealPlans (mealPlanId),
 	constraint fk_groceryListId1 foreign key (groceryListId) references groceryLists (groceryListId)
 );
+
+CREATE TABLE mealPlans
+(
+	mealPlanId int IDENTITY(1,1) NOT NULL,
+	mealPlanName varchar(max) NOT NULL,
+	mealPlanImage varchar(max) NULL,
+	recipeCount int NULL,
+	userID int NOT NULL,
+
+	constraint pk_mealPlanId1 primary key(mealPlanId),
+	constraint fk_mealPlan_User foreign key (userID) references users (userId)
+
+);
+
+ALTER TABLE [dbo].[mealPlans] ADD  CONSTRAINT [DF_mealPlans_userID]  DEFAULT ((1)) FOR [userID];
 
 CREATE TABLE recipes_ingredients
 (
