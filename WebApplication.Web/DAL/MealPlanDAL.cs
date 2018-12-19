@@ -26,6 +26,7 @@ namespace WebApplication.Web.DAL
 
 
         const string GetAllMealPlans = "Select * from mealPlans where userID=@userID";
+        const string GetAllRecipiesForMealPlan = "SELECT * from recipes as r join mealPlans_recipes as mr on r.recipeId = mr.recipeId where mr.mealPlanId = @mealPlanId";
         const string GetRecipeIDFromName = "SELECT recipeId from recipes where recipeName = @RecipeName;";
         const string AddToMealPlanRecipes = "INSERT INTO mealPlans_recipes (mealPlanId, recipeId) values (@mealPlanId, @recipeId);";
         const string GetAllUserRecipesString = " ";
@@ -78,6 +79,10 @@ namespace WebApplication.Web.DAL
                 {
                     connection.Open();
                     IList<MealPlans> results = connection.Query<MealPlans>(GetAllMealPlans,new { userID }).ToList();
+                    foreach (var item in results)
+                    {
+                        item.Recipes = connection.Query<Recipes>(GetAllRecipiesForMealPlan, new { mealPlanId = item.MealPlanId }).ToList();
+                    }
                     return results;
 
                 }
