@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Web.Models;
 using WebApplication.Web.DAL;
+using WebApplication.Web.Providers.Auth;
+using System.Security.Claims;
 
 namespace WebApplication.Web.Controllers
 {
@@ -33,7 +35,7 @@ namespace WebApplication.Web.Controllers
             Recipes recipe = recipeDAL.GetRecipe(recipeId);
             return View(recipe);
         }
-
+        [AuthorizationFilter]
         [HttpGet]
         public IActionResult AddRecipe()
         {

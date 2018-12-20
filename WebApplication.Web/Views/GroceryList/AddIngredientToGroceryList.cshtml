@@ -1,8 +1,27 @@
-﻿
+﻿@model Ingredients
 @{
     ViewData["Title"] = "AddIngredientToGroceryList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AddIngredientToGroceryList</h2>
+<h2 align="center" style="color: black; font-size: xx-large">Add Ingredient</h2>
+<br />
 
+<form asp-controller="GroceryList" asp-action="AddIngredient" method="post">
+    <div class="labels">
+        <label asp-for="IngredientName">Ingredient Name:</label>
+    </div>
+    <div class="fields">
+        <input type="text" asp-for="IngredientName" />
+    </div>
+    <div class="labels">
+        <label asp-for="IngredientImage">Ingredient Image (url only):</label>
+    </div>
+    <div class="fields">
+        <input type="url" asp-for="IngredientImage" />
+    </div>
+    <br />
+    <div class="labels">
+        <input type="submit" value="Add Ingredient" />
+    </div>
+</form>
