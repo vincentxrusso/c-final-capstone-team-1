@@ -23,62 +23,69 @@
             <br />
             <div class="container-fluid">
                 <div class="row">
-                    <div>
-                        <div class="col-md-3">
-                            <div class="inline-block" style="color: black; font-size: x-large; font-style: oblique;">
-                                <p style="color:black; font-weight: bold; opacity: 0.8">Cook Time: @Model.Recipe.CookTime | Min Prep Time: @Model.Recipe.PrepTime Min</p>
-                                <img class="detailRecipeImage" style="opacity: 0.8" src="@Model.Recipe.RecipeImage" alt="Recipe Image">
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            @{ foreach (Ingredients ingredient in Model.Ingredients)
-                                {
-                                    <div class="inline-block" style="color: black; font-size: x-large; font-style: oblique;">
-                                        <p>@ingredient.IngredientName</p>
-                                        <img class="ingredientImage" src="@ingredient.IngredientImage" alt="Ingredient Image">
-                                    </div>
-                                }
-                            }
-                        </div>
-                        <br />
-                        <br />
-                        <div>
-                            @{ <table class="table table-striped table-dark">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" style="color:black">GlutenFree</th>
-                                            <th scope="col" style="color:black">Vegetarian Friendly</th>
-                                            <th scope="col" style="color:black">Vegan Friendly</th>
-                                            <th scope="col" style="color:black">Dairy Free</th>
-                                            <th scope="col" style="color:black">Nut Free</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>@Model.Recipe.GlutenFree</td>
-                                            <td>@Model.Recipe.VegetarianFriendly</td>
-                                            <td>@Model.Recipe.VeganFriendly</td>
-                                            <td>@Model.Recipe.DairyFree</td>
-                                            <td>@Model.Recipe.NutFree</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            }
-                        </div>
-                        <br />
-                        <div>
-                            <p style="color:black; font-weight: bold; opacity: 0.8; font-size: larger"> @Model.Recipe.Instructions</p>
+                    <div class="col-md-12">
+                        <div class="inline-block">
+                            <p style="color: black; font-size: x-large; font-style: oblique; opacity: 0.8">Cook Time: @Model.Recipe.CookTime Min &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;Prep Time: @Model.Recipe.PrepTime Min</p>
+                            <img class="detailRecipeImage" style="opacity: 0.8" src="@Model.Recipe.RecipeImage" alt="Recipe Image">
                         </div>
                     </div>
                 </div>
                 <br />
                 <br />
-                <div>
-                    <p id="buttonOnAllRecipesPage">
-                        <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 10%">My Meal Plan</a>
-                        <a href="/Account/Register" class="btn btn-warning" style="margin-left: 10%">Not Registered? Sign Up!</a>
-                    </p>
+                <div class="row">
+                    <div class="col-md-12">
+                        @{ foreach (Ingredients ingredient in Model.Ingredients)
+                            {
+                                <div class="inline-block">
+                                    <p style="color: black; font-size: x-large; font-style: oblique; opacity: 0.8">@ingredient.IngredientName</p>
+                                    <img class="ingredientImage" src="@ingredient.IngredientImage" alt="Ingredient Image">
+                                </div>
+                            }
+                        }
+                    </div>
                 </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        @{ <table class="table table-striped table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="color:black">GlutenFree</th>
+                                        <th scope="col" style="color:black">Vegetarian Friendly</th>
+                                        <th scope="col" style="color:black">Vegan Friendly</th>
+                                        <th scope="col" style="color:black">Dairy Free</th>
+                                        <th scope="col" style="color:black">Nut Free</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@Model.Recipe.GlutenFree</td>
+                                        <td>@Model.Recipe.VegetarianFriendly</td>
+                                        <td>@Model.Recipe.VeganFriendly</td>
+                                        <td>@Model.Recipe.DairyFree</td>
+                                        <td>@Model.Recipe.NutFree</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="color:black; font-weight: bold; opacity: 0.8; font-size: larger"> @Model.Recipe.Instructions</p>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div>
+                <p id="buttonOnAllRecipesPage">
+                    <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 10%">My Meal Plan</a>
+                    <a href="/Account/Register" class="btn btn-warning" style="margin-left: 10%">Not Registered? Sign Up!</a>
+                </p>
             </div>
         </div>
     </div>
