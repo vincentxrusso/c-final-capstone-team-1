@@ -23,6 +23,11 @@ namespace WebApplication.Web.Controllers
             return View(groceryListDAL.GetGroceryLists());
         }
 
+        public IActionResult GroceryListDetail()
+        {
+            return View(ingredientsDAL.GetIngredients());
+        }
+
         [HttpGet]
         public IActionResult AddGroceryList()
         {
@@ -39,14 +44,14 @@ namespace WebApplication.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddIngredientToGroceryList()
+        public IActionResult AddIngredient()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddIngredientToGroceryList(Ingredients ingredients)
+        public IActionResult AddIngredient(Ingredients ingredients)
         {
             ingredientsDAL.AddIngredient(ingredients);
 

@@ -1,4 +1,4 @@
-﻿@model IList<GroceryLists>
+﻿@model IList<Ingredients>
 @{
     ViewData["Title"] = "GroceryListDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,14 +11,12 @@
     <div class="container-fluid">
         <div class="row">
             <div>
-                @{ foreach (GroceryLists groceryLists in Model)
+                @{ foreach (Ingredients ingredients in Model)
                     {
                         <div class="col-md-12">
-
-                            <img class="recipeImage" src="@groceryLists.GroceryListImage" alt="Recipe Image">
-                            <div style="color: orange; font-size: x-large; font-style: oblique;">
-                                <p>@groceryLists.Item</p>
-                                <p>@groceryLists.Quantity</p>
+                            <img class="ingredientImage" src="@ingredients.IngredientImage" alt="Ingredient Image">
+                            <div style="color: black; font-size: x-large; font-style: oblique;">
+                                <p>@ingredients.IngredientName</p>                               
                             </div>
                         </div>
                     }
@@ -32,7 +30,7 @@
         <p id="buttonOnGroceryListPage">
             <a href="/MealPlan/Index" class="btn btn-success" style="margin-left: 10%">My Meal Plan</a>
             <a href="/Recipe/Index" class="btn btn-primary" style="margin-left: 10%">All Recipes</a>
-            <a href="/GroceryList/AddGroceryList" class="btn btn-danger" style="margin-left: 10%">Add Grocery List</a>
+            <a href="/GroceryList/AddIngredient" class="btn btn-danger" style="margin-left: 10%">Add Ingredient To Grocery List</a>
             <a href="/Account/Register" class="btn btn-warning" style="margin-left: 10%">Not Registered? Sign Up!</a>
         </p>
     </div>

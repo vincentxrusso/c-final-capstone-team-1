@@ -41,13 +41,11 @@ namespace WebApplication.Web.DAL
                 {
                     connection.Open();
 
-                    string sql = $"INSERT INTO groceryLists (item, groceryListImage, quantity) values (@item, @groceryListImage, @quantity);";
+                    string sql = $"INSERT INTO groceryLists (groceryListImage) values (@groceryListImage);";
 
-                    SqlCommand command = new SqlCommand(sql, connection);
+                    SqlCommand command = new SqlCommand(sql, connection);                    
                     
-                    command.Parameters.AddWithValue("@item", newGroceryList.Item);
-                    command.Parameters.AddWithValue("@groceryListImage", newGroceryList.GroceryListImage);
-                    command.Parameters.AddWithValue("@quantity", newGroceryList.Quantity);
+                    command.Parameters.AddWithValue("@groceryListImage", newGroceryList.GroceryListImage);                    
 
                     command.ExecuteNonQuery();
                 }

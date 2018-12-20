@@ -7,24 +7,12 @@
 <h2 align="center" style="color: black; font-size: xx-large">New Grocery List</h2>
 <br />
 
-<form asp-controller="GroceryList" asp-action="AddGroceryList" method="post">
-    <div class="labels">
-        <label asp-for="Item">Item:</label>
-    </div>
-    <div class="fields">
-        <input type="text" asp-for="Item" />
-    </div>
+<form asp-controller="GroceryList" asp-action="AddGroceryList" method="post">  
     <div class="labels">
         <label asp-for="GroceryListImage">Grocery List Image (url only):</label>
     </div>
     <div class="fields">
         <input type="url" asp-for="GroceryListImage" />
-    </div>
-    <div class="labels">
-        <label asp-for="Quantity">Quantity:</label>
-    </div>
-    <div class="fields">
-        <input type="text" asp-for="Quantity" />
     </div>
     <br />
     <div class="labels">

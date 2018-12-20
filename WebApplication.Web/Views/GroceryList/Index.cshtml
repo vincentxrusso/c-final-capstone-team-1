@@ -14,14 +14,9 @@
                 @{ foreach (GroceryLists groceryLists in Model)
                     {
                 <div class="col-md-12">
-                    <a href="/GroceryList/GroceryListDetail?GroceryListId=@groceryLists.GroceryListId">
+                    <a href="/GroceryList/GroceryListDetail">
                         <img class="groceryListImage" src="@groceryLists.GroceryListImage" alt="Grocery List Image">
-                    </a>                 
-
-                    <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
-                        <p>@groceryLists.Item</p>
-                        <p>@groceryLists.Quantity</p>
-                    </div>
+                    </a>
                 </div>
                     }
                 }
