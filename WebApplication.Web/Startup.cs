@@ -69,7 +69,7 @@ namespace WebApplication.Web
             // For Authentication
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IAuthProvider, SessionAuthProvider>();
-            services.AddTransient<IUserDAL>(m => new UserDAL(@"Data Source=.\SQLEXPRESS;Initial Catalog=MealPlanner;Integrated Security=True"));
+            services.AddTransient<IUserDAL>(m => new UserDAL(@"Data Source=maritom-dev.cgvcfmypecs9.us-east-1.rds.amazonaws.com,1433;Initial Catalog=MealPlanner;User ID=tise;Password=901Penn@v3"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
