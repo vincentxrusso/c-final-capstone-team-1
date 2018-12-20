@@ -67,8 +67,10 @@ namespace WebApplication.Web.Controllers
         [HttpGet]
         public IActionResult MealPlanDetail(int id)
         {
-          
-            return View(mealPlanDAL.GetMealPlanByID(id));
+            AwesomeModel awesomeModel = mealPlanDAL.GetMealPlanByID(id);
+            awesomeModel.Recipe = new Recipes();
+            awesomeModel.Recipe.RecipeDropDown = recipeDAL.DropDownRecipeOnly();
+            return View(awesomeModel);
         }
 
         [HttpPost]
@@ -76,6 +78,14 @@ namespace WebApplication.Web.Controllers
         {
             mealPlanDAL.RemoveRecipeFromPlan(MealPlanId, RecipeId);
             return RedirectToAction("MealPlanDetail", new { id = MealPlanId });          
+        }
+
+        [HttpPost]
+        public IActionResult AddRecipeToSinglePlan(int MealPlanId, AwesomeModel awesomeModel)
+        {
+            mealPlanDAL.AddRecipeToPlan(MealPlanId, awesomeModel.Recipe.RecipeId);
+            return RedirectToAction("MealPlanDetail", new { id = MealPlanId });
+
         }
     }
 }

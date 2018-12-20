@@ -14,34 +14,55 @@
 
 }
 
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>#</th>
-            <th>@Model.MealPlan.MealPlanName</th>
-            <th>Recipe</th>
-            <th>Meal</th>
+<body>
+    <form asp-controller="MealPlan" asp-action="AddRecipeToSinglePlan" method="post">
+        <div class="col-md-4">
+            <label asp-for="MealPlan.MealPlanName" style="color:white">Meal Plan Name: </label>
+            <input class="Spacing2" asp-for="MealPlan.MealPlanName" asp-items="Model.MealPlanName" />
+            <input type="hidden" name="mealPlanID" id="mealPlanID" value="@Model.MealPlan.MealPlanId" />
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Recipe.RecipeName" style="color:white">Recipe to Add</label>
+            <select asp-for="@Model.Recipe.RecipeId" asp-items="Model.Recipe.RecipeDropDown"></select>
+        </div>
+        <div class="col-md-2">
+            <input type="submit" class="btn btn-success" value="Save New Recipe Into Meal Plan" />
+        </div>
+    </form>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>@Model.MealPlan.MealPlanName</th>
+                <th>Recipe</th>
+                <th>Meal</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
             @{
+                int rowIndex = 0;
                 for (int i = 0; i < Model.MealPlan.RecipesList.Count; i++)
-                {
-                    <th scope="row">@i</th>
-                    <td>@Model.MealPlan.RecipesList[i].RecipeName</td>
-                    <td>@Model.MealPlan.RecipesList[i].RecipeType</td>
-                    <td>
-                        <form asp-controller="MealPlan" asp-action="Remove" method="post">
-                            <input type="hidden" name="recipeID" id="recipeID" value="@Model.MealPlan.RecipesList[i].RecipeId" />
-                            <input type="hidden" name="mealPlanID" id="mealPlanID" value="@Model.MealPlan.MealPlanId" />
-                            <input type="submit" value="Delete" />
-                        </form>
-                    </td>
+
+                { rowIndex = i + 1;
+                    <tr>
+                        <th scope="row">@rowIndex</th>
+                        <td>@Model.MealPlan.RecipesList[i].RecipeName</td>
+                        <td>@Model.MealPlan.RecipesList[i].RecipeType</td>
+                        <td>
+                            <form asp-controller="MealPlan" asp-action="Remove" method="post">
+                                <input type="hidden" name="recipeID" id="recipeID" value="@Model.MealPlan.RecipesList[i].RecipeId" />
+                                <input type="hidden" name="mealPlanID" id="mealPlanID" value="@Model.MealPlan.MealPlanId" />
+                                <input type="submit" value="Delete" />
+                            </form>
+                        </td>
+                    </tr>
                 }
             }
-        </tr>
 
-    </tbody>
-</table>
+
+        </tbody>
+    </table>
+</body>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,5 +15,7 @@ namespace WebApplication.Web.DAL
         IList<Recipes> GetRecipesForUser(int userId);
         void AddRecipe(Recipes newRecipe);
         AwesomeModel DropDownRecipeGet();
+        List<SelectListItem> DropDownRecipeOnly();
+
     }
 }

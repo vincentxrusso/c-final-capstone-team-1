@@ -64,16 +64,16 @@ namespace WebApplication.Web.DAL
                 throw;
             }
         }
-        
+
         public AwesomeModel DropDownRecipeGet()
         {
-            AwesomeModel result =new AwesomeModel();
+            AwesomeModel result = new AwesomeModel();
             result.Recipe = new Recipes();
             result.Recipe.RecipeDropDown = new List<SelectListItem>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                
+
                 List<Recipes> DropDownRecipeList = connection.Query<Recipes>(GetAllRecipesString).ToList();
 
                 foreach (Recipes recipe in DropDownRecipeList)
@@ -81,9 +81,29 @@ namespace WebApplication.Web.DAL
                     SelectListItem choice = new SelectListItem() { Text = recipe.RecipeName, Value = recipe.RecipeName.ToString() };
                     result.Recipe.RecipeDropDown.Add(choice);
                 }
-                
+
             }
             return result;
+        }
+
+        public List<SelectListItem> DropDownRecipeOnly()
+        {
+
+            List<SelectListItem> returnList = new List<SelectListItem>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                List<Recipes> DropDownRecipeList = connection.Query<Recipes>(GetAllRecipesString).ToList();
+
+                foreach (Recipes recipe in DropDownRecipeList)
+                {
+                    SelectListItem choice = new SelectListItem() { Text = recipe.RecipeName, Value = recipe.RecipeId.ToString() };
+                    returnList.Add(choice);
+                }
+
+            }
+            return returnList;
         }
 
         //This method is to display top 5 recipes for the home index below the log in and register for aesthetics
