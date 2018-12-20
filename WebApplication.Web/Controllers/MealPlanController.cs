@@ -28,7 +28,9 @@ namespace WebApplication.Web.Controllers
             var user = authProvider.GetCurrentUser();
             //This is a way to pass a single value into your view
             ViewBag.isLoggedIn = authProvider.IsLoggedIn;
-            return View(mealPlanDAL.GetMealPlans(user.UserId));
+            AwesomeModel awesomeModel = recipeDAL.DropDownRecipeGet();
+            awesomeModel.MealPlans = mealPlanDAL.GetMealPlans(user.UserId);
+            return View(awesomeModel);
         }
 
         /// <returns></returns>
@@ -59,7 +61,8 @@ namespace WebApplication.Web.Controllers
             model.User = authProvider.GetCurrentUser();
             model = mealPlanDAL.AddMealPlan(model);
             model = mealPlanDAL.GetMealPlanByID(model.MealPlan.MealPlanId);
-            return View( "MealPlanDetail", model);
+            return RedirectToAction("Index");
+            //return View( "MealPlanDetail", model);
         }
         [HttpGet]
         public IActionResult MealPlanDetail(int id)

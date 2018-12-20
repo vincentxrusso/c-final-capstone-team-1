@@ -1,4 +1,4 @@
-﻿@model IList<MealPlans>
+﻿@model AwesomeModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -16,9 +16,37 @@
 <body>
     <div>
         <div class="container-fluid">
-            <h2 align="center" style="color: orange; font-size: xx-large">Your Meal Plans</h2>
+            <h2 align="center" style="color: orange; font-size: xx-large;">Your Meal Plans</h2>
+            <div class="collapse" id="AddMealPlan">
+                <form asp-controller="MealPlan" asp-action="Submit" method="post">
+
+                    @*<form asp-controller="MealPlan" asp-action="AddMealPlan" method="post">*@
+                    <div class="row transparentBlue" style="padding-top:15px;padding-bottom:15px;" >
+
+                        <div class="col-md-4">
+                            <label asp-for="MealPlan.MealPlanName" style="color:white">Meal Plan Name: </label>
+                            <input class="Spacing2" asp-for="MealPlan.MealPlanName" asp-items="Model.MealPlanName" />
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Recipe.RecipeName" style="color:white">Recipe to Add</label>
+                            <select asp-for="@Model.Recipe.RecipeName" asp-items="Model.Recipe.RecipeDropDown"></select>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" class="btn btn-success" value="Save Meal Plan" />
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
             <div class="row">
-                @{ foreach (MealPlans plan in Model)
+                <div class="col-md-2 recipeList text-center">
+                    <a data-toggle="collapse" data-target="#AddMealPlan">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+
+                @{ foreach (MealPlans plan in Model.MealPlans)
                     {
                         //a trick to handle if only one recipe
                         string singular = "Recipe";
