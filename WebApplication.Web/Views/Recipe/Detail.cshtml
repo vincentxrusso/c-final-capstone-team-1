@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="inline-block">
+                        <div>
                             <p style="color: black; font-size: x-large; font-style: oblique; opacity: 0.8">Cook Time: @Model.Recipe.CookTime Min &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;Prep Time: @Model.Recipe.PrepTime Min</p>
                             <img class="detailRecipeImage" style="opacity: 0.8" src="@Model.Recipe.RecipeImage" alt="Recipe Image">
                         </div>
@@ -32,11 +32,11 @@
                 </div>
                 <br />
                 <br />
-                <div class="row">
+                <div class="row row-eq-height">
                     <div class="col-md-12">
                         @{ foreach (Ingredients ingredient in Model.Ingredients)
                             {
-                                <div class="inline-block">
+                                <div>
                                     <p style="color: black; font-size: x-large; font-style: oblique; opacity: 0.8">@ingredient.IngredientName</p>
                                     <img class="ingredientImage" src="@ingredient.IngredientImage" alt="Ingredient Image">
                                 </div>

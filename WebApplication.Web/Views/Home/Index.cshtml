@@ -16,7 +16,7 @@
     }
 </style>
 <body>
-    <h1 class="shadow" style="color: crimson; font-family: 'EmojiOne Color'; font-weight: bold;  font-size: 40px; text-align: center; opacity: 0.65"> Capstone Meal Planner</h1>
+    <h1 class="shadow" style="color: crimson; font-family: 'EmojiOne Color'; font-weight: bold;  font-size: 40px; text-align: center; opacity: 0.8"> Capstone Meal Planner</h1>
     @{
         ViewData["Title"] = "Home Page";
     }
@@ -29,7 +29,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img class="img-responsive" style="width:100%; height: 340px; opacity: 0.4;" src="~/images/home1.jpg" alt="ASP.NET" />
+                <img class="img-responsive" style="width:100%; height: 340px; opacity: 0.7;" src="~/images/home1.jpg" alt="ASP.NET" />
                 <div class="carousel-caption" role="option">
                     <p>
                         <span style="font-weight:bold">Learn about the recipes in our Database!</span>
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="~/images/picforhome.PNG" style="width:100%; height: 340px; opacity: 0.4;" alt="Visual Studio" class=" carouselImage img-responsive" />
+                <img src="~/images/picforhome.PNG" style="width:100%; height: 340px; opacity: 0.7;" alt="Visual Studio" class=" carouselImage img-responsive" />
                 <div class="carousel-caption" role="option">
                     <p>
                         <span style="font-weight:bold">
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="~/images/groceries.jpg" style="width: 100%; height: 340px; opacity: 0.4" alt="Microsoft Azure" class="img-responsive carouseli" />
+                <img src="~/images/groceries.jpg" style="width: 100%; height: 340px; opacity: 0.7" alt="Microsoft Azure" class="img-responsive carouseli" />
                 <div class="carousel-caption" role="option">
                     <p style="color:whitesmoke">
                         <span style="font-weight:bold">
@@ -76,51 +76,44 @@
 
     <div class="row">
         <div class="col-md-3">
-            <h2 class="shadow" style="font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; opacity: 0.9; font-weight:bold;">Build Your Meal Plan</h2>
-            <ul style="color:seagreen; font-weight: bold; opacity: 0.8;">
+            <h2 class="shadow" style="font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; font-weight:bold;">Build Your Meal Plan</h2>
+            <ul style="color:seagreen; font-weight: bold; opacity: 0.9;">
                 <li>Add and edit recipes to your MealPlan, modify them anytime.</li>
                 <li>Store ingredients in your grocery list to assess which recipes are best to make.</li>
                 <li>Adjust your mealplan to meet dietary restrictions</li>
-
-
             </ul>
         </div>
         <div class="col-md-3">
-            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color:ghostwhite;font-size: 20px; opacity: 0.9; font-weight: bold;  ">Varieties of Recipes</h2>
-            <ul style="color:seagreen; font-weight: bold; opacity: 0.8;">
+            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color:ghostwhite;font-size: 20px; font-weight: bold;">Varieties of Recipes</h2>
+            <ul style="color:seagreen; font-weight: bold; opacity: 0.9;">
                 <li>Extensive Database with a diversity of recipes</li>
                 <li>Add or remove ingredients at your leasure</li>
                 <li> Additional simplistic view for printing</li>
             </ul>
         </div>
         <div class="col-md-3">
-            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; opacity: 0.9; font-weight: bold; ">Manage Your Ingredients</h2>
-            <ul style="color:seagreen; font-weight: bold; opacity: 0.8;">
+            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; font-weight: bold;">Manage Your Ingredients</h2>
+            <ul style="color:seagreen; font-weight: bold; opacity: 0.9;">
                 <li>Build your own grocery list</li>
                 <li>Store your groceries list within your profile to organize what you need for future meals</li>
                 <li>Choose recipes based on ingredients you have</li>
             </ul>
         </div>
         <div class="col-md-3">
-            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; opacity: 0.9; font-weight:bold;">This Project </h2>
-            <ul style="color:seagreen; font-weight: bold; opacity: 0.8;">
+            <h2 class="shadow" style=" font-family: 'EmojiOne Color'; color: ghostwhite;font-size: 20px; font-weight:bold;">This Project </h2>
+            <ul style="color:seagreen; font-weight: bold; opacity: 0.9;">
                 <li>Built in Microsoft Visual Studio using .NET Framework</li>
                 <li>Organized with MVC Pattern and ASP.NET</li>
                 <li><a href="https://www.techelevator.com/pittsburgh/" style="color: seagreen">.NET Cohort[1] December 2018</a></li>
             </ul>
         </div>
     </div>
-
 </body>
 
 @*@model IList<Recipes>
     @{
         ViewData["Title"] = "Home Page";
     }
-
-
-
-
     <style>
         body {
             height: 100%;
