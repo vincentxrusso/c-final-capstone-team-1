@@ -14,5 +14,7 @@ namespace WebApplication.Web.Models
         public Ingredients Ingredient { get; set; }
         public GroceryLists GroceryList { get; set; }
         public IList<Ingredients> Ingredients { get; set; }
+        // need to use AwesomeModel for meal plan display so we get the recipe dropdown for add
+        public IList<MealPlans> MealPlans { get; set; }
     }
 }

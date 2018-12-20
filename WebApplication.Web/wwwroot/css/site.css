@@ -56,4 +56,11 @@ body {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+.recipeList{
+    background-color:lightgray;
+    opacity:0.4;
+}
+
+.transparentBlue{
+    background-color:lightblue;
 }

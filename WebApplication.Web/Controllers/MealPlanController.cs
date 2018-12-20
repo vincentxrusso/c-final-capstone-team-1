@@ -26,9 +26,14 @@ namespace WebApplication.Web.Controllers
         public IActionResult Index()
         {
             var user = authProvider.GetCurrentUser();
-            return View(mealPlanDAL.GetMealPlans(user.UserId));
+            //This is a way to pass a single value into your view
+            ViewBag.isLoggedIn = authProvider.IsLoggedIn;
+            AwesomeModel awesomeModel = recipeDAL.DropDownRecipeGet();
+            awesomeModel.MealPlans = mealPlanDAL.GetMealPlans(user.UserId);
+            return View(awesomeModel);
         }
 
+        /// <returns></returns>
         //[HttpGet]
         //public IActionResult RecipeToAddToMealPlan()
         //{
@@ -56,13 +61,21 @@ namespace WebApplication.Web.Controllers
             model.User = authProvider.GetCurrentUser();
             model = mealPlanDAL.AddMealPlan(model);
             model = mealPlanDAL.GetMealPlanByID(model.MealPlan.MealPlanId);
-            return View( "MealPlanDetail", model);
+            return RedirectToAction("Index");
+            //return View( "MealPlanDetail", model);
         }
         [HttpGet]
         public IActionResult MealPlanDetail(int id)
         {
           
             return View(mealPlanDAL.GetMealPlanByID(id));
+        }
+
+        [HttpPost]
+        public IActionResult Remove(int MealPlanId, int RecipeId)
+        {
+            mealPlanDAL.RemoveRecipeFromPlan(MealPlanId, RecipeId);
+            return RedirectToAction("MealPlanDetail", new { id = MealPlanId });          
         }
     }
 }
