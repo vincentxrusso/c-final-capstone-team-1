@@ -29,6 +29,7 @@ namespace WebApplication.Web.DAL
         const string GetAllRecipiesForMealPlan = "SELECT * from recipes as r join mealPlans_recipes as mr on r.recipeId = mr.recipeId where mr.mealPlanId = @mealPlanId";
         const string GetRecipeIDFromName = "SELECT recipeId from recipes where recipeName = @RecipeName;";
         const string AddToMealPlanRecipes = "INSERT INTO mealPlans_recipes (mealPlanId, recipeId) values (@mealPlanId, @recipeId);";
+        const string RemoveRecipeFromMealPlan = "DELETE from mealPlans_recipes where recipeId = @RecipeId and mealPlanId = @MealPlanId";
         const string GetAllUserRecipesString = " ";
 
         public AwesomeModel AddMealPlan(AwesomeModel newPlan)
@@ -62,16 +63,30 @@ namespace WebApplication.Web.DAL
 
                 }
 
-
-
-
             }
             return newPlan;
+        }
+
+
+        public void RemoveRecipeFromPlan (int MealPlanId, int RecipeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                //Dictionary<string, object> dynamicParameterArgs = new Dictionary<string, object>();
+                //int theRecipeId = connection.Query<int>(GetRecipeIDFromName, new DynamicParameters(dynamicParameterArgs)).ToList().FirstOrDefault();
+
+                connection.Query<Recipes>(RemoveRecipeFromMealPlan, new { mealPlanId = MealPlanId, recipeId = RecipeId });
+
+            }
+
+
         }
 
         public IList<MealPlans> GetMealPlans(int userID)
         {
 
+            
             IList<MealPlans> allRecipes = new List<MealPlans>();
 
             {

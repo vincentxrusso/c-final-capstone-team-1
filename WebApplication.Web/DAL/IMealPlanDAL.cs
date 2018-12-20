@@ -11,6 +11,7 @@ namespace WebApplication.Web.DAL
         IList<MealPlans> GetMealPlans(int userID);
         AwesomeModel AddMealPlan(AwesomeModel newPlan);
         AwesomeModel GetMealPlanByID(int id);
+        void RemoveRecipeFromPlan(int MealPlanId, int RecipeId);
     }
 
 }
