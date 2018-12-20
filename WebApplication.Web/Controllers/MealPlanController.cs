@@ -26,9 +26,12 @@ namespace WebApplication.Web.Controllers
         public IActionResult Index()
         {
             var user = authProvider.GetCurrentUser();
+            //This is a way to pass a single value into your view
+            ViewBag.isLoggedIn = authProvider.IsLoggedIn;
             return View(mealPlanDAL.GetMealPlans(user.UserId));
         }
 
+        /// <returns></returns>
         //[HttpGet]
         //public IActionResult RecipeToAddToMealPlan()
         //{

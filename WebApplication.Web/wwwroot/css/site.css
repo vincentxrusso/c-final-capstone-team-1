@@ -50,3 +50,8 @@ body {
 .ingredientImage {
     width: 50px;    
 }
+
+.recipeList{
+    background-color:lightgray;
+    opacity:0.4;
+}

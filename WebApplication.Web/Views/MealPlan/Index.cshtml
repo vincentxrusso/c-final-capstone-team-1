@@ -20,13 +20,21 @@
             <div class="row">
                 @{ foreach (MealPlans plan in Model)
                     {
-                        <div class="col-md-4">
+                        //a trick to handle if only one recipe
+                        string singular = "Recipe";
+                        if (plan.Recipes.Count() != 1)
+                        {
+                            singular += "s";
+                        }
+
+                        //text-center is a bootstrap item that moves everything to the center
+                        <div class="col-md-2 recipeList text-center">
                             <a href="/MealPlan/MealPlanDetail/@plan.MealPlanId">
                                 <img class="mealPlanImage" src="@plan.MealPlanImage" alt="Meal Plan Image">
                             </a>
-                            <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
+                            <div class="inline-block" style="color: blue; font-style: oblique;">
                                 <p>@plan.MealPlanName</p>
-                                <p>@plan.Recipes.Count() Recipes Added</p>
+                                <p>@plan.Recipes.Count() @singular</p>
                             </div>
                         </div>
                     }
@@ -35,7 +43,12 @@
         </div>
         <p id="buttonOnMealPlanPage">
             <a href="/Recipe/Index" class="btn btn-primary" style="margin-left: 10%">All Recipes</a>
-            <a href="/Account/Register" class="btn btn-warning" style="margin-left: 10%">Not Registered? Sign Up!</a>
+            @{
+                if (!ViewBag.isLoggedIn)
+                {
+                    <a href="/Account/Register" class="btn btn-warning" style="margin-left: 10%">Not Registered? Sign Up!</a>
+                }
+            }
         </p>
     </div>
 </body>
