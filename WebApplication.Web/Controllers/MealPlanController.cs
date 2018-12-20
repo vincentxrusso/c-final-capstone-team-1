@@ -64,5 +64,12 @@ namespace WebApplication.Web.Controllers
           
             return View(mealPlanDAL.GetMealPlanByID(id));
         }
+
+        [HttpPost]
+        public IActionResult Remove(int MealPlanId, int RecipeId)
+        {
+            mealPlanDAL.RemoveRecipeFromPlan(MealPlanId, RecipeId);
+            return RedirectToAction("MealPlanDetail", new { id = MealPlanId });          
+        }
     }
 }
