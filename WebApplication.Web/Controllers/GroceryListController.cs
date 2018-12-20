@@ -12,6 +12,8 @@ namespace WebApplication.Web.Controllers
     public class GroceryListController : Controller
     {
         IGroceryListDAL groceryListDAL = new GroceryListDAL(@"Data Source=maritom-dev.cgvcfmypecs9.us-east-1.rds.amazonaws.com,1433;Initial Catalog=MealPlanner;User ID=tise;Password=901Penn@v3");
+        IIngredientsDAL ingredientsDAL = new IngredientsDAL(@"Data Source=maritom-dev.cgvcfmypecs9.us-east-1.rds.amazonaws.com,1433;Initial Catalog=MealPlanner;User ID=tise;Password=901Penn@v3");
+
 
         public IActionResult Index()
         {
@@ -29,6 +31,21 @@ namespace WebApplication.Web.Controllers
         public IActionResult AddGroceryList(GroceryLists groceryList)
         {
             groceryListDAL.AddGroceryList(groceryList);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult AddIngredientToGroceryList()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddIngredientToGroceryList(Ingredients ingredients)
+        {
+            ingredientsDAL.AddIngredient(ingredients);
 
             return RedirectToAction("Index", "Home");
         }

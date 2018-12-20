@@ -20,6 +20,7 @@ namespace WebApplication.Web.DAL
 
         const string GetAllIngredientsForRecipeString = "select * from ingredients join recipes_ingredients on ingredients.ingredientId = recipes_ingredients.ingredientId where recipeId = @recipeId;";
         const string GetAllIngredientsString = "Select * from ingredients;";
+        const string AddIngredientString = "insert into ingredients (ingredientName, ingredientImage) values (@ingredientName, @ingredientImage);";
 
         public IList<Ingredients> GetIngredients()
         {
@@ -49,7 +50,14 @@ namespace WebApplication.Web.DAL
 
         public void AddIngredient(Ingredients newIngredient)
         {
-
+            IList<Ingredients> addIngredient = new List<Ingredients>();
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    IList<Ingredients> result = connection.Query<Ingredients>(AddIngredientString).ToList();
+                }
+            }
         }
     }
 }
