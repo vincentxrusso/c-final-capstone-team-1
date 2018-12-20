@@ -55,14 +55,14 @@ namespace WebApplication.Web.Controllers
          
             model.User = authProvider.GetCurrentUser();
             model = mealPlanDAL.AddMealPlan(model);
-            model = mealPlanDAL.GetMealPlanByID(model);
+            model = mealPlanDAL.GetMealPlanByID(model.MealPlan.MealPlanId);
             return View( "MealPlanDetail", model);
         }
         [HttpGet]
-        public IActionResult MealPlanDetail(AwesomeModel model)
+        public IActionResult MealPlanDetail(int id)
         {
           
-            return View(model);
+            return View(mealPlanDAL.GetMealPlanByID(id));
         }
     }
 }

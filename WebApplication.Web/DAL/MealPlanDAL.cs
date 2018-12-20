@@ -88,34 +88,33 @@ namespace WebApplication.Web.DAL
                 }
             }
         }
-        public AwesomeModel GetMealPlanByID(AwesomeModel userModel)
+        public AwesomeModel GetMealPlanByID(int id)
         {
-            
 
+            AwesomeModel returnModel = new AwesomeModel();
             const string GetMealPlanByID = "Select * from mealPlans where mealPlanId = @MealPlanId;";
             const string GetMealPlanByIDWithRecipeIDs = "Select recipeId from mealPlans_recipes where mealPlanId = @MealPlanId;";
             const string CreateRecipesFromMealPlan = "Select * from recipes where recipeId = @recipeId;";
             Dictionary<string, object> dynamicParameterArgsMealPlan = new Dictionary<string, object>();
-            dynamicParameterArgsMealPlan.Add("@MealPlanId", userModel.MealPlan.MealPlanId);
+            dynamicParameterArgsMealPlan.Add("@MealPlanId", id);
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 MealPlans results = connection.Query<MealPlans>(GetMealPlanByID, new DynamicParameters(dynamicParameterArgsMealPlan)).ToList().FirstOrDefault();
-                userModel.MealPlan = results;
+                returnModel.MealPlan = results;
              
 
                 List<int> resultsRecipes = connection.Query<int>(GetMealPlanByIDWithRecipeIDs, new DynamicParameters(dynamicParameterArgsMealPlan)).ToList();
-                userModel.MealPlan.RecipeId = resultsRecipes;
-                userModel.MealPlan.RecipesList = new List<Recipes>();
+                returnModel.MealPlan.RecipeId = resultsRecipes;
+                returnModel.MealPlan.RecipesList = new List<Recipes>();
                 foreach (int recipeId in resultsRecipes)
                 {
-                    dynamicParameterArgsMealPlan.Add("@recipeid", recipeId);
-                    Recipes recipeToAddToModel = connection.Query<Recipes>(CreateRecipesFromMealPlan, new DynamicParameters(dynamicParameterArgsMealPlan)).ToList().FirstOrDefault();
-                    userModel.MealPlan.RecipesList.Add(recipeToAddToModel);
+                    Recipes recipeToAddToModel = connection.Query<Recipes>(CreateRecipesFromMealPlan, new { recipeId }).ToList().FirstOrDefault();
+                    returnModel.MealPlan.RecipesList.Add(recipeToAddToModel);
                 }
 
-                return userModel;
+                return returnModel;
 
             }
 

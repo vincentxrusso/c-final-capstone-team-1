@@ -10,7 +10,7 @@ namespace WebApplication.Web.DAL
     {
         IList<MealPlans> GetMealPlans(int userID);
         AwesomeModel AddMealPlan(AwesomeModel newPlan);
-        AwesomeModel GetMealPlanByID(AwesomeModel userModel);
+        AwesomeModel GetMealPlanByID(int id);
     }
 
 }

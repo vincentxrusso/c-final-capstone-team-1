@@ -21,7 +21,7 @@
                 @{ foreach (MealPlans plan in Model)
                     {
                         <div class="col-md-4">
-                            <a href="/MealPlan/MealPlanDetail?MealPlanId=@plan.MealPlanId">
+                            <a href="/MealPlan/MealPlanDetail/@plan.MealPlanId">
                                 <img class="mealPlanImage" src="@plan.MealPlanImage" alt="Meal Plan Image">
                             </a>
                             <div class="inline-block" style="color: orange; font-size: x-large; font-style: oblique;">
