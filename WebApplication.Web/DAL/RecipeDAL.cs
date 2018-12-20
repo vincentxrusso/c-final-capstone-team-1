@@ -21,7 +21,7 @@ namespace WebApplication.Web.DAL
         const string RecipeListTop5String = "Select * from recipes;";
         const string GetAllRecipesString = "SELECT * from recipes;";
         const string GetRecipeString = "Select * from recipes where RecipeId = @recipeId";
-        const string GetAllUserRecipesString = "Select * from recipes where user ;";     
+        const string GetAllUserRecipesString = "Select * from recipes where userId = @userId ;";     
 
         public void AddRecipe(Recipes newRecipe)
         {
