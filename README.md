@@ -159,4 +159,4 @@ Another sql script (`data.sql`) is provided for you to use if you need to reset 
 Lastly the project has been configured to support a REST API. The following was added:
 
 1. CORS-Enabled to allow cross-origin requests. Requests are allowed from a pre-defined set of addresses (:5500 and :8080) but can be modified if necessary.
-2. Swagger support added to generate your REST API documentation. **Be sure to comment your classes and methods.**
+2. Swagger support added to generate your REST API documentation. **Be sure to comment your classes and methods.**# c-final-capstone-team-1
